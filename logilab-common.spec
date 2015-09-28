@@ -4,7 +4,7 @@
 #
 Name     : logilab-common
 Version  : 1.0.2
-Release  : 13
+Release  : 14
 URL      : https://pypi.python.org/packages/source/l/logilab-common/logilab-common-1.0.2.tar.gz
 Source0  : https://pypi.python.org/packages/source/l/logilab-common/logilab-common-1.0.2.tar.gz
 Summary  : collection of low-level Python packages and modules used by Logilab projects
