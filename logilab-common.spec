@@ -4,7 +4,7 @@
 #
 Name     : logilab-common
 Version  : 1.2.2
-Release  : 21
+Release  : 22
 URL      : http://pypi.debian.net/logilab-common/logilab-common-1.2.2.tar.gz
 Source0  : http://pypi.debian.net/logilab-common/logilab-common-1.2.2.tar.gz
 Summary  : collection of low-level Python packages and modules used by Logilab projects
@@ -14,6 +14,7 @@ Requires: logilab-common-bin
 Requires: logilab-common-python
 BuildRequires : pbr
 BuildRequires : pip
+BuildRequires : pytest
 BuildRequires : python-dev
 BuildRequires : python3-dev
 BuildRequires : setuptools
@@ -59,7 +60,7 @@ python3 -tt setup.py build -b py3 install --root=%{buildroot}
 
 %files bin
 %defattr(-,root,root,-)
-/usr/bin/pytest
+%exclude /usr/bin/pytest
 
 %files python
 %defattr(-,root,root,-)
