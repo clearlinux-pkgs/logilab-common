@@ -4,7 +4,7 @@
 #
 Name     : logilab-common
 Version  : 1.2.2
-Release  : 25
+Release  : 26
 URL      : http://pypi.debian.net/logilab-common/logilab-common-1.2.2.tar.gz
 Source0  : http://pypi.debian.net/logilab-common/logilab-common-1.2.2.tar.gz
 Summary  : collection of low-level Python packages and modules used by Logilab projects
@@ -47,13 +47,15 @@ python components for the logilab-common package.
 
 %build
 export LANG=C
+export SOURCE_DATE_EPOCH=1484552609
 python2 setup.py build -b py2
 python3 setup.py build -b py3
 
 %install
+export SOURCE_DATE_EPOCH=1484552609
 rm -rf %{buildroot}
-python2 -tt setup.py build -b py2 install --root=%{buildroot}
-python3 -tt setup.py build -b py3 install --root=%{buildroot}
+python2 -tt setup.py build -b py2 install --root=%{buildroot} --force
+python3 -tt setup.py build -b py3 install --root=%{buildroot} --force
 
 %files
 %defattr(-,root,root,-)
