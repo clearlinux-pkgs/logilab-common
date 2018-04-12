@@ -4,14 +4,13 @@
 #
 Name     : logilab-common
 Version  : 1.4.1
-Release  : 34
+Release  : 35
 URL      : http://pypi.debian.net/logilab-common/logilab-common-1.4.1.tar.gz
 Source0  : http://pypi.debian.net/logilab-common/logilab-common-1.4.1.tar.gz
 Summary  : collection of low-level Python packages and modules used by Logilab projects
 Group    : Development/Tools
 License  : GPL-2.0 LGPL-2.1
 Requires: logilab-common-bin
-Requires: logilab-common-legacypython
 Requires: logilab-common-python3
 Requires: logilab-common-python
 Requires: setuptools
@@ -44,19 +43,9 @@ Group: Binaries
 bin components for the logilab-common package.
 
 
-%package legacypython
-Summary: legacypython components for the logilab-common package.
-Group: Default
-Requires: python-core
-
-%description legacypython
-legacypython components for the logilab-common package.
-
-
 %package python
 Summary: python components for the logilab-common package.
 Group: Default
-Requires: logilab-common-legacypython
 Requires: logilab-common-python3
 
 %description python
@@ -80,15 +69,12 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1507156523
-python2 setup.py build -b py2
+export SOURCE_DATE_EPOCH=1523561897
 python3 setup.py build -b py3
 
 %install
-export SOURCE_DATE_EPOCH=1507156523
 rm -rf %{buildroot}
-python2 -tt setup.py build -b py2 install --root=%{buildroot} --force
-python3 -tt setup.py build -b py3 install --root=%{buildroot} --force
+python3 -tt setup.py build -b py3 install --root=%{buildroot}
 echo ----[ mark ]----
 cat %{buildroot}/usr/lib/python3*/site-packages/*/requires.txt || :
 echo ----[ mark ]----
@@ -99,10 +85,6 @@ echo ----[ mark ]----
 %files bin
 %defattr(-,root,root,-)
 /usr/bin/logilab-pytest
-
-%files legacypython
-%defattr(-,root,root,-)
-/usr/lib/python2*/*
 
 %files python
 %defattr(-,root,root,-)
