@@ -4,7 +4,7 @@
 #
 Name     : logilab-common
 Version  : 1.4.1
-Release  : 39
+Release  : 40
 URL      : http://pypi.debian.net/logilab-common/logilab-common-1.4.1.tar.gz
 Source0  : http://pypi.debian.net/logilab-common/logilab-common-1.4.1.tar.gz
 Summary  : collection of low-level Python packages and modules used by Logilab projects
