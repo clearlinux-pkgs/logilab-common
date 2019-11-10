@@ -1,1103 +1,1613 @@
-logilab-common (1.4.3-1) unstable; urgency=medium
+ChangeLog for logilab.common
+============================
 
-  * new upstream release.
-  * drop documentation build
+2016-10-03  -- 1.3.0
 
- -- Denis Laxalde <denis.laxalde@logilab.fr>  Fri, 26 Jul 2019 16:18:48 +0200
+    * pytest: executable deprecated and renamed as logilab-pytest to prevent
+    conflict with pytest provided by http://pytest.org/
 
-logilab-common (1.4.2-1) unstable; urgency=medium
+2016-03-15  -- 1.2.0
 
-  * New upstream release
+    * pytest: TraceController class, pause_tracing and resume_tracing
+      functions, deprecated from 0.63.1, got removed.  The nocoverage
+      and pause_trace utilities are now available from the testlib
+      module rather than pytest.
 
- -- Philippe Pepiot <philippe.pepiot@logilab.fr>  Thu, 18 Oct 2018 10:42:33 +0200
+    * date: datetime2ticks uses the milliseconds from the datetime objects
 
-logilab-common (1.4.1-1) unstable; urgency=medium
+2015-10-12  --  1.1.0
+    * configuration: have a stable order for sections (#298658)
 
-  * New upstream release.
+    * testlib: clean out deprecated TestCase methods (#1716063), move pytest
+      specifics to pytest.py (#1716053)
 
- -- Denis Laxalde <denis.laxalde@logilab.fr>  Tue, 11 Jul 2017 13:17:22 +0200
+    * fix a few python3 bugs in umessage, configuration and optik_ext modules
 
-logilab-common (1.4.0-1) unstable; urgency=medium
+    * testlib: report failures and skips in generative tests properly
 
-  * New upstream release.
+    * optik_ext: return bytes as ints and not floats (#2086835)
 
- -- Denis Laxalde <denis.laxalde@logilab.fr>  Fri, 17 Mar 2017 17:22:02 +0100
+2015-07-08  --  1.0.2
+    * declare setuptools requirement in __pkginfo__/setup.py
 
-logilab-common (1.3.0-1) unstable; urgency=medium
+    * randomize order of test modules in pytest -t
 
-  * new upstream release.
+2015-07-01  --  1.0.1
+    * restore __pkginfo__.version, which pylint < 1.4.4 uses
 
- -- Denis Laxalde <denis.laxalde@logilab.fr>  Fri, 18 Nov 2016 11:47:35 +0100
+2015-06-30  --  1.0.0
+    * remove unused/deprecated modules: cli, contexts, corbautils, dbf,
+      pyro_ext, xmlrpcutils. __pkginfo__ is no longer installed.
 
-logilab-common (1.2.2-1) unstable; urgency=medium
+    * major layout change
 
-  * new upstream release.
+    * use setuptools exclusively
 
- -- Denis Laxalde <denis.laxalde@logilab.fr>  Tue, 21 Jun 2016 15:00:07 +0200
+    * 'logilab' is now a proper namespace package
 
-logilab-common (1.2.1-1) unstable; urgency=medium
+    * modutils: basic support for namespace packages
 
-  * new upstream release 
+    * registry: ambiguous selects now raise a specific exception
 
- -- David Douard <david.douard@logilab.fr>  Fri, 27 May 2016 13:34:20 +0200
+    * testlib: better support for non-pytest launchers
 
-logilab-common (1.2.0-1) unstable; urgency=medium
+    * testlib: Tags() now work with py3k
 
-  * new upstream release
+2014-11-30  --  0.63.2
+    * fix 2 minor regressions from 0.63.1
 
- -- Julien Cristau <julien.cristau@logilab.fr>  Tue, 15 Mar 2016 09:48:37 +0100
+2014-11-28  --  0.63.1
+    * fix fallout from py3k conversion
 
-logilab-common (1.1.0-1) unstable; urgency=medium
+    * pytest: fix TestSuite.run wrapper (#280806)
 
-  * new upstream release
+    * daemon: change umask after creating pid file
 
- -- Rémi Cardona <remi.cardona@logilab.fr>  Mon, 12 Oct 2015 17:13:56 +0200
+2014-11-05  --  0.63.0
+    * drop compatibility with python <= 2.5 (#264017)
 
-logilab-common (1.0.2-1) unstable; urgency=medium
+    * fix textutils.py doctests for py3k
 
-  * new upstream release
+    * produce a clearer exception when dot is not installed (#253516)
+ 
+    * make source python3-compatible (3.3+), without using 2to3.  This
+     introduces a dependency on six (#265740)
 
- -- Julien Cristau <jcristau@debian.org>  Wed, 08 Jul 2015 22:08:14 +0200
+    * fix umessage header decoding on python 3.3 and newer (#149345)
 
-logilab-common (1.0.1-1) unstable; urgency=medium
+    * WARNING: the compat module no longer exports 'callable', 'izip', 'imap',
+     'chain', 'sum', 'enumerate', 'frozenset', 'reversed', 'sorted', 'max',
+     'relpath', 'InheritableSet', or any subprocess-related names.
 
-  * new upstream release
+2014-07-30  --  0.62.1
+    * shellutils: restore py 2.5 compat by removing usage of class decorator
 
- -- Julien Cristau <julien.cristau@logilab.fr>  Wed, 01 Jul 2015 09:08:34 +0200
+    * pytest: drop broken --coverage option
 
-logilab-common (1.0.0-1) unstable; urgency=medium
+    * testlib: support for skipping whole test class and conditional skip, don't
+     run setUp for skipped tests
 
-  * new upstream release
+    * configuration: load options in config file order (#185648)
 
- -- Julien Cristau <julien.cristau@logilab.fr>  Tue, 30 Jun 2015 16:24:57 +0200
 
-logilab-common (0.63.2-1) unstable; urgency=low
 
-  * new upstream release
+2014-03-07  --  0.62.0
+    * modutils: cleanup_sys_modules returns the list of cleaned modules
 
- -- David Douard <david.douard@logilab.fr>  Sun, 30 Nov 2014 19:14:43 +0100
 
-logilab-common (0.63.1-1) unstable; urgency=low
 
-  * new upstream release 
+2014-02-11  --  0.61.0
+    * pdf_ext: removed, it had no known users (CVE-2014-1838)
 
- -- David Douard <david.douard@logilab.fr>  Fri, 28 Nov 2014 11:48:37 +0100
+    * shellutils: fix tempfile issue in Execute, and deprecate it
+     (CVE-2014-1839)
 
-logilab-common (0.63.0-1) unstable; urgency=low
+    * pytest: use 'env' to run the python interpreter
 
-  * new upstream release
+    * graph: ensure output is ordered on node and graph ids (#202314)
 
- -- Julien Cristau <julien.cristau@logilab.fr>  Wed, 05 Nov 2014 14:23:54 +0100
 
-logilab-common (0.62.1-1) unstable; urgency=low
 
-  * new upstream release
+2013-16-12  --  0.60.1
+    * modutils:
 
- -- Sylvain Thénault <sylvain.thenault@logilab.fr>  Wed, 30 Jul 2014 16:35:18 +0200
+    * don't propagate IOError when package's __init__.py file doesn't
+         exist (#174606)
 
-logilab-common (0.62.0-1) unstable; urgency=low
+    * ensure file is closed, may cause pb depending on the interpreter, eg
+       pypy) (#180876)
 
-  * new upstream release
+    * fix support for `extend_path` based nested namespace packages ;
+       Report and patch by John Johnson (#177651)
 
- -- Aurelien Campeas <aurelien.campeas@logilab.fr>  Thu, 03 Jul 2014 14:31:32 +0200
+    * fix some cases of failing python3 install on windows platform / cross
+     compilation (#180836)
 
-logilab-common (0.61.0-1) unstable; urgency=low
 
-  * new upstream release
 
- -- Julien Cristau <julien.cristau@logilab.fr>  Tue, 11 Feb 2014 15:37:02 +0100
+2013-07-26  --  0.60.0
+    * configuration: rename option_name method into option_attrname (#140667)
 
-logilab-common (0.60.1-1) unstable; urgency=low
+    * deprecation: new DeprecationManager class (closes #108205)
 
-  * new upstream release
+    * modutils:
 
- -- Sylvain Thénault <sylvain.thenault@logilab.fr>  Mon, 16 Dec 2013 12:15:51 +0100
+        - fix typo causing name error in python3 / bad message in python2
+       (#136037)
+        - fix python3.3 crash in file_from_modpath due to implementation
+        change of imp.find_module wrt builtin modules (#137244)
 
-logilab-common (0.60.0-1) unstable; urgency=low
+    * testlib: use assertCountEqual instead of assertSameElements/assertItemsEqual
+      (deprecated), fixing crash with python 3.3 (#144526)
 
-  * new upstream release
+    * graph: use codecs.open avoid crash when writing utf-8 data under python3
+      (#155138)
 
- -- Sylvain Thénault <sylvain.thenault@logilab.fr>  Fri, 26 Jul 2013 10:30:04 +0200
 
-logilab-common (0.59.1-1) unstable; urgency=low
 
-  * new upstream release
+2013-04-16  --  0.59.1
+    * graph: added pruning of the recursive search tree for detecting cycles in
+      graphs (closes #2469)
 
- -- Sylvain Thénault <sylvain.thenault@logilab.fr>  Tue, 16 Apr 2013 13:01:04 +0200
+    * testlib: check for generators in with_tempdir (closes #117533)
 
-logilab-common (0.59.0-1) unstable; urgency=low
+    * registry:
 
-  * new upstream release
+        - select_or_none should not silent ObjectNotFound exception
+        (closes #119819)
+        - remove 2 accidentally introduced tabs breaking python 3 compat
+        (closes #117580)
 
- -- Aurélien Campéas <aurelien.campeas@logilab.fr>  Tue, 18 Dec 2012 12:35:00 +0100
+    * fix umessages test w/ python 3 and LC_ALL=C (closes #119967, report and
+      patch by Ian Delaney)
 
-logilab-common (0.58.3-1) unstable; urgency=low
 
-  * new upstream release
 
- -- David Douard <david.douard@logilab.fr>  Wed, 14 Nov 2012 16:18:53 +0100
+2013-01-21  --  0.59.0
+    * registry:
 
-logilab-common (0.58.2-1) precise; urgency=low
+        - introduce RegistrableObject base class, mandatory to make
+          classes automatically registrable, and cleanup code
+          accordingly
+        - introduce objid and objname methods on Registry instead of
+          classid function and inlined code plus other refactorings to allow
+          arbitrary objects to be registered, provided they inherit from new
+          RegistrableInstance class (closes #98742)
+        - deprecate usage of leading underscore to skip object registration, using
+          __abstract__ explicitly is better and notion of registered object 'name'
+          is now somewhat fuzzy
+        - use register_all when no registration callback defined (closes #111011)
 
-  * new upstream release
+    * logging_ext: on windows, use colorama to display colored logs, if available (closes #107436)
 
- -- David Douard <david.douard@logilab.fr>  Mon, 30 Jul 2012 12:26:15 +0200
+    * packaging: remove references to ftp at logilab
 
-logilab-common (0.58.1-1) unstable; urgency=low
+    * deprecations: really check them
 
-  * new upstream release
+    * packaging: steal spec file from fedora (closes #113099)
 
- -- Sylvain Thénault <sylvain.thenault@logilab.fr>  Tue, 17 Jul 2012 16:01:54 +0200
+    * packaging force python2.6 on rhel5 (closes #113099)
 
-logilab-common (0.58.0-1) unstable; urgency=low
+    * packaging Update download and project urls (closes #113099)
 
-  * new upstream release
+    * configuration: enhance merge_options function (closes #113458)
 
- -- David Douard <david.douard@logilab.fr>  Thu, 12 Apr 2012 09:21:02 +0200
+    * decorators: fix @monkeypatch decorator contract for dark corner
+      cases such as monkeypatching of a callable instance: no more
+      turned into an unbound method, which was broken in python 3 and
+      probably not used anywhere (actually closes #104047).
 
-logilab-common (0.57.2-1) unstable; urgency=low
 
-  * new upstream release
 
- -- David Douard <david.douard@logilab.fr>  Thu, 22 Mar 2012 10:57:44 +0100
+2012-11-14  --  0.58.3
+    * date: fix ustrftime() impl. for python3 (closes #82161, patch by Arfrever
+      Frehtes Taifersar Arahesis) and encoding detection for python2 (closes
+      #109740)
 
-logilab-common (0.57.1-1) unstable; urgency=low
+    * other python3 code and test fixes (closes #104047)
 
-  * new upstream release
+    * registry: Store.setdefault shouldn't raise RegistryNotFound (closes #111010)
 
- -- Sylvain Thénault <sylvain.thenault@logilab.fr>  Fri, 28 Oct 2011 11:59:28 +0200
+    * table: stop encoding to iso-8859-1, use unicode (closes #105847)
 
-logilab-common (0.57.0-1) unstable; urgency=low
+    * setup: properly install additional files during build instead of install (closes #104045)
 
-  * new upstream release
 
- -- Aurélien Campéas <aurelien.campeas@logilab.fr>  Wed, 12 Oct 2011 15:43:00 +0200
 
-logilab-common (0.56.2-2) unstable; urgency=low
+2012-07-30  --  0.58.2
+    * modutils: fixes (closes #100757 and #100935)
 
-  * depends on python >= 2.5
 
- -- David Douard <david.douard@logilab.fr>  Wed, 21 Sep 2011 11:55:32 +0200
 
-logilab-common (0.56.2-1) unstable; urgency=low
+2012-07-17  --  0.58.1
+    * modutils, testlib: be more python implementation independant (closes #99493 and #99627)
 
-  * new upstream release
 
- -- Sylvain Thénault <sylvain.thenault@logilab.fr>  Thu, 08 Sep 2011 16:42:24 +0200
 
-logilab-common (0.56.1-1) unstable; urgency=low
+2012-04-12  --  0.58.0
+    * new `registry` module containing a backport of CubicWeb selectable objects registry (closes #84654)
 
-  * new upstream release
+    * testlib: DocTestCase fix builtins pollution after doctest execution.
 
- -- Sylvain Thénault <sylvain.thenault@logilab.fr>  Fri, 05 Aug 2011 10:34:52 +0200
+    * shellutil: add argument to ``ProgressBar.update`` to tune cursor progression (closes #88981)
 
-logilab-common (0.56.0-1) unstable; urgency=low
+    * deprecated: new DeprecationWrapper class (closes #88942)
 
-  * new upstream release
 
- -- Sylvain Thénault <sylvain.thenault@logilab.fr>  Thu, 09 Jun 2011 15:07:47 +0200
 
-logilab-common (0.55.2-1) unstable; urgency=low
+2012-03-22  --  0.57.2
+    * texutils: apply_units raise ValueError if string isn'nt valid (closes #88808)
 
-  * new upstream release
+    * daemon: don't call putenv directly
 
- -- Alexandre Fayolle <alexandre.fayolle@logilab.fr>  Fri, 01 Apr 2011 15:01:25 +0200
+    * pytest: do not enable extra warning other than DeprecationWarning.
 
-logilab-common (0.55.1-1) unstable; urgency=low
+    * testlib: DocTestCase fix builtins pollution after doctest execution.
 
-  * new upstream release
+    * testlib: replace sys.exit with raise ImportError (closes: #84159)
 
- -- Nicolas Chauvat <nicolas.chauvat@logilab.fr>  Mon, 28 Mar 2011 19:06:47 +0200
+    * fix license in README
 
-logilab-common (0.55.0-1) unstable; urgency=low
+    * add trove classifiers (tell about python 3 support for pypi)
 
-  * new upstream release
 
- -- Sylvain Thénault <sylvain.thenault@logilab.fr>  Fri, 18 Feb 2011 15:48:30 +0100
 
-logilab-common (0.54.0-1) unstable; urgency=low
+2011-10-28  --  0.57.1
+    * daemon: change $HOME after dropping privileges (closes #81297)
 
-  * new upstream release
+    * compat: method_type for py3k use instance of the class to have a
+      real instance method (closes: #79268)
 
- -- Sylvain Thénault <sylvain.thenault@logilab.fr>  Wed, 12 Jan 2011 09:04:29 +0100
 
-logilab-common (0.53.0-1) unstable; urgency=low
 
-  * new upstream release
+2011-10-12  --  0.57.0
+    * only install unittest2 when python version < 2.7 (closes: #76068)
 
- -- Émile Anclin <emile.anclin@logilab.fr>  Mon, 15 Nov 2010 15:43:29 +0100
+    * daemon: make pidfile world-readable (closes #75968)
 
-logilab-common (0.52.1-1) unstable; urgency=low
+    * daemon: remove unused(?) DaemonMixin class
 
-  * new upstream release
+    * update compat module for callable() and method_type()
 
- -- Sylvain Thénault <sylvain.thenault@logilab.fr>  Mon, 11 Oct 2010 16:04:29 +0200
+    * decorators: fix monkeypatch py3k compat (closes #75290)
 
-logilab-common (0.52.0-1) unstable; urgency=low
+    * decorators: provide a @cachedproperty decorator
 
-  * new upstream release
 
- -- Sylvain Thénault <sylvain.thenault@logilab.fr>  Tue, 28 Sep 2010 14:22:27 +0200
 
-logilab-common (0.51.1-1) unstable; urgency=low
+2011-09-08  --  0.56.2
+    * daemon: call initgroups/setgid before setuid (closes #74173)
 
-  * new upstream release
+    * decorators: @monkeypatch should produce a method object (closes #73920)
 
- -- Sylvain Thénault <sylvain.thenault@logilab.fr>  Fri, 10 Sep 2010 10:19:37 +0200
+    * modutils: allow overriding of _getobj by suppressing mangling
 
-logilab-common (0.51.0-1) unstable; urgency=low
 
-  * new upstream release
 
- -- Sylvain Thénault <sylvain.thenault@logilab.fr>  Thu, 26 Aug 2010 09:28:35 +0200
+2011-08-05  --  0.56.1
+    * clcommands: #72450 --rc-file option doesn't work
 
-logilab-common (0.50.3-1) unstable; urgency=low
 
-  * new upstream release
 
- -- Sylvain Thénault <sylvain.thenault@logilab.fr>  Fri, 04 Jun 2010 16:04:40 +0200
+2011-06-09  --  0.56.0
+    * clcommands: make registration possible by class decoration
 
-logilab-common (0.50.2-1) unstable; urgency=low
+    * date: new datetime/delta <-> seconds/days conversion function
 
-  * new upstream release
+    * decorators: refactored @cached to allow usages such as
+      @cached(cacheattr='_cachename') while keeping bw compat
 
- -- Sylvain Thénault <sylvain.thenault@logilab.fr>  Fri, 21 May 2010 10:59:29 +0200
 
-logilab-common (0.50.1-1) unstable; urgency=low
 
-  * new upstrem release
+2011-04-01  --  0.55.2
+    * new function for password generation in shellutils
 
- -- Julien Jehannet <julien.jehannet@logilab.fr>  Mon, 26 Apr 2010 11:29:50 +0200
+    * pyro_ext: allow to create a server without registering with a pyrons
 
-logilab-common (0.50.0-1) unstable; urgency=low
 
-  * new upstrem release
 
- -- Sylvain Thénault <sylvain.thenault@logilab.fr>  Tue, 20 Apr 2010 07:49:07 +0200
+2011-03-28  --  0.55.1
+    * fix date.ustrftime break if year <= 1900
 
-logilab-common (0.49.0-1) unstable; urgency=low
+    * fix graph.py incorrectly builds command lines using %s to call dot
 
-  * new upstream release
+    * new functions to get UTC datetime / time
 
- -- Sylvain Thénault <sylvain.thenault@logilab.fr>  Tue, 16 Mar 2010 17:08:30 +0100
 
-logilab-common (0.48.1-1) unstable; urgency=low
 
-  * new upstream release
+2011-02-18  --  0.55.0
+    * new urllib2ext module providing a GSSAPI authentication handler, based on python-kerberos
 
- -- Sylvain Thénault <sylvain.thenault@logilab.fr>  Fri, 26 Feb 2010 07:12:06 +0100
+    * graph: test and fix ordered_nodes() [closes #60288]
 
-logilab-common (0.48.0-1) unstable; urgency=low
+    * changelog: refactor ChangeLog class to ease overriding
 
-  * new upstream release
+    * testlib: Fix tag handling for generator.
 
- -- Nicolas Chauvat <nicolas.chauvat@logilab.fr>  Wed, 17 Feb 2010 15:17:29 +0100
 
-logilab-common (0.47.0-1) unstable; urgency=low
 
-  * new upstream release
+2011-01-12  --  0.54.0
+    * dropped python 2.3 support
 
- -- Sylvain Thénault <sylvain.thenault@logilab.fr>  Wed, 10 Feb 2010 08:42:00 +0100
+    * daemon: we can now specify umask to daemonize function, and it return
+     different exit code according to the process
 
-logilab-common (0.46.1-1) unstable; urgency=low
+    * pyro_ext: new ns_reregister function to ensure a name is still properly
+     registered in the pyro name server
 
-  * new upstream release
+    * hg: new incoming/outgoing functions backward compatible with regards to
+     mercurial version (eg hg 1.6 and earlier)
 
- -- Pierre-Yves David <pierre-yves.david@logilab.fr>  Thu, 04 Feb 2010 15:56:35 +0100
+    * testlib/pytest: more deprecation and removed code. Still on the way to
+     unittest2
 
-logilab-common (0.46.0-1) unstable; urgency=low
 
-  * new upstream release
 
- -- Sylvain Thénault <sylvain.thenault@logilab.fr>  Wed, 23 Dec 2009 09:00:35 +0100
-logilab-common (0.46.0-1) unstable; urgency=low
+2010-11-15  --  0.53.0
+    * first python3.x compatible release
 
-  * new upstream release
+    * __init__: tempattr context manager
 
- -- Sylvain Thénault <sylvain.thenault@logilab.fr>  Wed, 23 Dec 2009 09:00:35 +0100
+    * shellutils: progress context manager
 
-logilab-common (0.45.2-1) unstable; urgency=low
 
-  * new upstream release
 
- -- Adrien Di Mascio <Adrien.DiMascio@logilab.fr>  Mon, 23 Nov 2009 19:08:32 +0100
+2010-10-11  --  0.52.1
+    * configuration: fix pb with option names as unicode string w/
+      python 2.5. Makes OptionError available through the module
 
-logilab-common (0.45.1-1) unstable; urgency=low
+    * textutils: text_to_dict skip comments (# lines)
 
-  * new upstream release
+    * compat: dropped some 2.2 compat
 
- -- Sylvain Thénault <sylvain.thenault@logilab.fr>  Wed, 07 Oct 2009 10:32:20 +0200
+    * modutils: Consider arch-specific installation for STD_LIB_DIR definition
 
-logilab-common (0.45.0-1) unstable; urgency=low
 
-  * new upstream release
 
- -- Olivier Cayrol <olivier.cayrol@logilab.fr>  Wed, 26 Aug 2009 17:40:00 +0200
+2010-09-28  --  0.52.0
+    * testlib is now based on unittest2, to prepare its own extinction.
+      Warning are printed so you can easily migrate step by step.
 
-logilab-common (0.44.0-1) unstable; urgency=low
+    * restored python 2.3 compat in some modules, so one get a change to run
+      pylint at least
 
-  * new upstream release
+    * textutils: use NFKD decomposition in unormalize()
 
- -- Sylvain Thénault <sylvain.thenault@logilab.fr>  Thu, 06 Aug 2009 11:43:19 +0200
+    * logging_ext: don't try to use ansi colorized formatter when not in debug
+      mode
 
-logilab-common (0.43.0-1) unstable; urgency=low
 
-  * new upstream release
 
- -- Sylvain Thénault <sylvain.thenault@logilab.fr>  Tue, 21 Jul 2009 11:58:26 +0200
+2010-09-10  --  0.51.1
+    * logging_ext: init_log function splitted into smaller chunk to ease reuse
+      in other contexts
 
-logilab-common (0.42.0-2) unstable; urgency=low
+    * clcommands: enhanced/cleaned api, nicer usage display
 
-  * Does clean up old pycentral package
+    * various pylint detected errors fixed
 
- -- Julien Jehannet <julien.jehannet@logilab.fr>  Fri, 17 Jul 2009 17:44:14 +0200
 
-logilab-common (0.42.0-1) unstable; urgency=low
 
-  * New upstream release
-  * debian/control: updated standards to 3.8.2
-  * debian/rules: adapted Julien Lavergne's python2.6 compatibility changes
+2010-08-26  --  0.51.0
+    * testlib: don't raise string exception (closes #35331)
 
- -- Alexandre Fayolle <afayolle@debian.org>  Thu, 02 Jul 2009 09:26:47 +0200
+    * hg: new module regrouping some mercurial utility functions
 
-logilab-common (0.41.0-1) unstable; urgency=low
+    * clcommands: refactored to get more object oriented api.
 
-  * new upstream release
+    * optparser: module is now deprecated, use clcommands instead
 
- -- Nicolas Chauvat <nicolas.chauvat@logilab.fr>  Wed, 03 Jun 2009 17:57:42 +0200
+    * textutils: new split_url_or_path and text_to_dict functions
 
-logilab-common (0.40.1-1) unstable; urgency=low
+    * logging_ext:
+      - init_log now accept optionaly any arbitrary handler
+      - threshold default to DEBUG if debug flag is true  and no threshold specified
 
-  * new upstream release
+    * date: new ustrftime implementation working around datetime limitaion on dates < 1900
 
- -- Adrien Di Mascio <Adrien.DiMascio@logilab.fr>  Thu, 28 May 2009 12:14:30 +0200
 
-logilab-common (0.40.0-1) unstable; urgency=low
 
-  * put python-egenix-mxdatetime as a recommends instead of depends
-  * new upstream release
+2010-06-04  --  0.50.3
+    * logging: added new optional kw argument to init_log rotating_parameters
 
- -- Sylvain Thénault <sylvain.thenault@logilab.fr>  Thu, 14 May 2009 08:02:06 +0200
+    * date: fix nb_open_days() codomain, positive natural numbers are expected
 
-logilab-common (0.39.1-1) unstable; urgency=low
+    * configuration:
+      - skip option with no type, avoid pb with generated option such as long-help
+      - handle level on man page generation
 
-  * new upstream release
 
- -- Dorothée Sénéchal <dorothee.senechal@logilab.fr>  Wed, 08 Apr 2009 19:32:13 +0200
 
-logilab-common (0.39.0-1) unstable; urgency=low
+2010-05-21  --  0.50.2
+    * fix licensing information: LGPL v2.1 or greater
 
-  * new upstream release
-  * debian/rules: set NO_SETUPTOOLS when calling python setup.py
+    * daemon: new daemonize function
 
- -- Sylvain Thénault <sylvain.thenault@logilab.fr>  Wed, 25 Mar 2009 09:31:16 +0100
+    * modutils: fix some false negative of is_standard_module with
+     'from module import something" where something isn't a submodule
 
-logilab-common (0.38.1-1) unstable; urgency=low
+    * optik_ext: fix help generation for normal optparse using script if
+      optik_ext has been imported (#24450)
 
-  * New upstream release
-  * debian/{control, rules}
-    - move from python-central to python-support
-  * debian/control
-    - bump Standard-Version to 3.8.1 (no changes needed)
+    * textutils support 256 colors when available
 
- -- Sandro Tosi <morph@debian.org>  Tue, 17 Mar 2009 16:26:15 +0100
+    * testlib] add option splitlines to assertTextEquals
 
-logilab-common (0.38.0-1) unstable; urgency=low
 
-  * New upstream release
-  * debian/watch
-    - added opts=pasv to parse correctly remote ftp site
-    - bump version to 3
-    - removed path to debian package and command to execute after download
-  * debian/copyright
-    - updated upstream copyright information
-  * debian/rules
-    - added test execution at build-time, simulating "logilab" is a real
-      package; thanks Piotr!
-    - using --root at install-time
-    - build can't be used as dh_clean call (it's a dir), restored 'rm -rf'
 
- -- Sandro Tosi <morph@debian.org>  Thu, 05 Feb 2009 00:53:24 +0100
+2010-04-26  --  0.50.1
+    * implements __repr__ on nullobject
 
-logilab-common (0.37.2-2) unstable; urgency=low
+    * configuration: avoid crash by skipping option without 'type'
+          entry while input a config
 
-  * Merged Sandro Tosi's changes with Logilab's evolution of the package
-  * Published the resulting package to Debian
+    * pyro_ext: raise PyroError instead of exception
 
- -- Alexandre Fayolle <afayolle@debian.org>  Tue, 20 Jan 2009 16:32:13 +0100
 
-logilab-common (0.37.2-1) unstable; urgency=low
 
-  * new upstream release
+2010-04-20  --  0.50.0
+    * graph:
+     - generate methods now takes an optional mapfile argument to generate
+       html image maps
+     - new ordered_nodes function taking a dependency graph dict as arguments
+       and returning an ordered list of nodes
 
- -- Sylvain Thénault <sylvain.thenault@logilab.fr>  Thu, 08 Jan 2009 14:00:41 +0100
+    * configuration:
+     - nicer serialization of bytes / time option
+     - may now contains several option provider with the same name
+     - consider 'level' in option dict, --help displaying only option with level
+       0, and automatically adding --long-help options for higher levels
 
-logilab-common (0.37.1-1) unstable; urgency=low
+    * textutils: case insensitive apply_unit
 
-  * new upstream release
+    * sphinx_ext: new module usable as a sphinx pluggin and containing a new
+     'autodocstring' directive
 
- -- Adrien Di Mascio <Adrien.DiMascio@logilab.fr>  Thu, 11 Dec 2008 16:07:02 +0100
+    * ureports: output &#160; instead of &nbsp; for strict xhtml compliance
 
-logilab-common (0.37.0-1) unstable; urgency=low
+    * decorators: @cached propery copy inner function docstring
 
-  * new upstream release
 
- -- Adrien Di Mascio <Adrien.DiMascio@logilab.fr>  Tue, 09 Dec 2008 10:56:23 +0100
 
-logilab-common (0.36.1-1) unstable; urgency=low
+2010-03-16  --  0.49.0
+    * date: new 'totime' function
 
-  * New upstream release
-  * debian/control
-    - adopted under DPMT umbrella (in agreement with Alexandre Fayolle)
-    - bump Standards-Version to 3.8.0 (no changes needed)
-    - added Vcs-{Svn,Browser} field
-    - replace 'python' with ${python:Depends} and added ${misc:Depends} to
-      Depends
-    - added python-epydoc and graphviz to build-dep-indep (to build doc)
-    - moved python to build-dep (needed for clean)
-  * debian/pycompat
-    - removed since no more needed
-  * debian/rules
-    - install upstream 'Changelog' using dh_installchangelog
-    - added build, clean and install for documentation
-    - no need to recompress man page
-    - using '-delete' find option instead of xargs
-    - call "python setup.py clean" in clean target
-    - merge 'rm' calls into dh_clean
-    - don't compress files under 'test/' and 'apidoc/' dirs
-  * debian/python-logilab-common.{postinst,preinst,prerm}
-    - removed since not needed
-  * debian/python-logilab-common.docs
-    - removed: installed non-existing files, using debian/rules
-  * debian/copyright
-    - added a clear license section, referring simply to GPLv2, since every file
-      is license only GPLv2, hence updating the local license text file too
-    - indented upstream author, copyright and license with 4 spaces
-    - extended copyright year (starting from 2000, previous 2003, due to
-      'table.py' et alter)
+    * adbh, db, sqlgen modules moved to the new logilab-database package
 
- -- Sandro Tosi <morph@debian.org>  Sun, 30 Nov 2008 15:08:25 +0100
+    * pytest: when -x option is given, stop on the first error even if
+      there are multiple test directories
 
-logilab-common (0.36.0-1) unstable; urgency=low
 
-  * new upstream release
 
- -- Fabrice Douchant <fabrice.douchant@logilab.fr>  Thu, 30 Oct 2008 14:48:17 +0100
+2010-02-26  --  0.48.1
+    * adbh: added dbport optional argument to [backup|restore]_commands
 
-logilab-common (0.35.3-1) unstable; urgency=low
+    * db: fix date processing for SQLServer 2005
 
-  * new upstream release
+    * testlib: improve XML assertion by using ElementTree parser and a new 'context' lines argument
 
- -- Sylvain Thénault <sylvain.thenault@logilab.fr>  Thu, 09 Oct 2008 14:54:28 +0200
 
-logilab-common (0.35.2-1) unstable; urgency=low
 
-  * new upstream release
+2010-02-17  --  0.48.0
+    * date: fixed mx date time compat for date_range (#20651)
 
- -- Sylvain Thénault <sylvain.thenault@logilab.fr>  Wed, 01 Oct 2008 16:42:01 +0200
+    * testlib: generative test should not be interrupted by self.skip() (#20648)
 
-logilab-common (0.35.0-1) unstable; urgency=low
 
-  * new upstream release
 
- -- Emile Anclin <emile.anclin@logilab.fr>  Wed, 10 Sep 2008 14:17:23 +0200
+2010-02-10  --  0.47.0
+    * adbh: changed backup / restore api (BREAKS COMPAT):
+      - backup_command is now backup_commands (eg return a list of commands)
+      - each command returned in backup_commands/restore_commands may now
+        be list that may be used as argument to subprocess.call, or a string
+        which will the requires a subshell
+      - new sql_rename_col method
 
-logilab-common (0.34.0-1) unstable; urgency=low
+    * deprecation: deprecated now takes an optional 'stacklevel' argument, default to 2
 
-  * new upstream release
+    * date: some functions to ease python's datetime module usage have been backported
+      from cubicweb
 
- -- Nicolas Chauvat <nicolas.chauvat@logilab.fr>  Thu,  7 Aug 2008 19:15:00 +0200
 
-logilab-common (0.33.0-1) unstable; urgency=low
 
-  * new upstream release
+2009-12-23  --  0.46.0
+    * db / adbh: added SQL Server support using Pyodbc
 
- -- Pierre-Yves David <pierre-yves.david@logilab.fr>  Wed, 25 Jun 2008 11:45:12 +0200
+    * db:
+        - New optional extra_args argument to get_connection.
+        - Support Windows Auth for SQLServer by giving
+          extra_args='Trusted_Connection' to the sqlserver2005 driver
 
-logilab-common (0.32.0-2) unstable; urgency=low
 
-  * add missing python:Depends and python:Provides fields in control file
 
- -- Sylvain Thenault <sylvain.thenault@logilab.fr>  Fri, 13 Jun 2008 15:41:21 +0200
+2009-11-23  --  0.45.2
+    * configuration:
+      - proper bytes and time option types support
+      - make Method usable as 'callback' value
+      - fix #8849 Using plugins, options and .pylintrc crashes PyLint
 
-logilab-common (0.32.0-1) unstable; urgency=low
+    * graph: fix has_path returned value to include the destination node, else we get
+      an empty list which makes think there is no path (test added)
 
-  * new upstream release
 
- -- Pierre-Yves David <pierre-yves.david@logilab.fr>  Wed, 11 Jun 2008 10:11:12 +0200
-logilab-common (0.31.0-1) unstable; urgency=low
 
-  * new upstream release
+2009-08-26  --  0.45.0
+    * added function for parsing XML processing instructions
 
- -- Nicolas Chauvat <Nicolas.Chauvat@logilab.fr>  Thu, 08 May 2008 14:37:41 +0200
 
-logilab-common (0.30.0-2) unstable; urgency=low
 
-  * upload to debian
+2009-08-07  --  0.44.0
+    * remove code deprecated for a while now
 
- -- Alexandre Fayolle <afayolle@debian.org>  Mon, 21 Apr 2008 17:24:28 +0200
+    * shellutils: replace confirm function by RawInput class /ASK singleton
 
-logilab-common (0.30.0-1) unstable; urgency=low
+    * deprecation: new deprecated decorator, replacing both obsolete and deprecated_function
 
-  * new upstream release
 
- -- Sylvain Thénault <Sylvain.Thenault@logilab.fr>  Wed, 26 Mar 2008 10:14:07 +0100
 
-logilab-common (0.29.1-1) unstable; urgency=low
+2009-07-21  --  0.43.0
+    * dbf: a DBF reader which reads Visual Fox Pro DBF format with Memo field (module from Yusdi Santoso)
 
-  * new upstream release
+    * shellutils:
+     - #9764 add title to shellutils.ProgressBar
+     - #9796 new confirm function
 
- -- Sylvain Thénault <Sylvain.Thenault@logilab.fr>  Wed, 12 Mar 2008 10:42:31 +0100
+    * testlib:
+     - simplify traceback manipulation (skip first frames corresponding to testlib functions)
+     - -c now captures DeprecationWarnings
 
-logilab-common (0.29.0-1) unstable; urgency=low
+    * sphinxutils: simplified API
 
-  * new upstream release
+    * modutils: new cleanup_sys_modules function that removes modules under a list
+      of directories from sys.modules
 
- -- Sylvain Thénault <sylvain.thenault@logilab.fr>  Wed, 05 Mar 2008 19:07:43 +0100
 
-logilab-common (0.28.2-1) unstable; urgency=low
 
-  * new upstream release
+2009-07-17  --  0.42.0
+    * pyro_ext: new module for pyro utilities
 
- -- Adrien.DiMascio <Adrien.DiMascio@logilab.fr>  Mon, 18 Feb 2008 09:08:44 +0100
+    * adbh: fix default set_null_allowed implementation, new case_sensitive
+     resource descriptor
 
-logilab-common (0.28.1-1) unstable; urgency=low
 
-  * new upstream release
 
- -- Sylvain Thénault <sylvain.thenault@logilab.fr>  Fri, 15 Feb 2008 11:01:42 +0100
+2009-06-03  --  0.41.0
+    * modutils: new extrapath argument to modpath_from_file (see function's
+     docstring for explanation)
 
-logilab-common (0.28.0-2) unstable; urgency=low
+    * adbh: new alter_column_support flag, sql_set_null_allowed and
+     sql_change_col_type methods
 
-  * Upload to Debian
-  * Fixed uncompressed man page
 
- -- Alexandre Fayolle <afayolle@debian.org>  Thu, 14 Feb 2008 16:05:26 +0100
 
-logilab-common (0.28.0-1) unstable; urgency=low
+2009-05-28  --  0.40.1
+    * date: handle both mx.DateTime and datetime representations
 
-  * new upstream release
+    * db: use sqlite native module's Binary, not StringIO
 
- -- Adrien.DiMascio <Adrien.DiMascio@logilab.fr>  Tue, 05 Feb 2008 11:41:55 +0100
 
-logilab-common (0.27.0-1) unstable; urgency=low
 
-  * new upstream release
+2009-05-14  --  0.40.0
+    * python < 2.3 are now officially unsupported
 
- -- Sylvain Thénault <Sylvain.Thenault@logilab.fr>  Fri, 25 Jan 2008 11:10:21 +0100
+    * #9162: new module with some sphinx utilities
 
-logilab-common (0.26.1-1) unstable; urgency=low
+    * #9166: use a global variable to control mx datetime / py datetime usage
 
-  * new upstream release
-  * updated standards to 3.7.3
-  * Fixed Homepage header
-  * tests are no longer installed in the doc package
+    * db: add time adapter for pysqlite2, fix mysql bool and string handling
 
- -- Alexandre Fayolle <afayolle@debian.org>  Tue, 10 Jan 2008 09:38:22 +0100
+    * configuration: don't print default for store_true / store_false option
+      or option with None as default
 
-logilab-common (0.26.0-1) unstable; urgency=low
 
-  * new upstream release
 
- -- Sylvain Thénault <Sylvain.Thenault@logilab.fr>  Mon, 07 Jan 2008 16:05:45 +0100
+2009-04-07  --  0.39.1
+    * fix #6760 umessage.decode_QP() crashes on unknown encoding
 
-logilab-common (0.25.2-1) unstable; urgency=low
 
-  * new upstream release
 
- -- Sylvain Thénault <Sylvain.Thenault@logilab.fr>  Thu, 20 Dec 2007 16:52:11 +0100
+2009-03-25  --  0.39.0
+    * fix #7915 (shellutils unusable under windows)
 
-logilab-common (0.25.1-1) unstable; urgency=low
+    * testlib:
 
-  * new upstream release
+    * new profile option using cProfile
 
- -- Sylvain Thénault <Sylvain.Thenault@logilab.fr>  Tue, 11 Dec 2007 10:52:26 +0100
+    * allows to skip a module by raising TestSkipped from module import
 
-logilab-common (0.25.0-1) unstable; urgency=low
+    * modutils: locate modules in zip/egg archive
 
-  * new upstream release
+    * db: USE_MX_DATETIME global to control usage of mx.DateTime / py datetime
 
- -- Sylvain Thénault <Sylvain.Thenault@logilab.fr>  Mon, 26 Nov 2007 10:41:46 +0100
 
-logilab-common (0.24.0-1) unstable; urgency=low
 
-  * new upstream release
+2009-01-26  --  0.38.0
+    * setuptools / easy_install support!
 
- -- Sylvain Thénault <sylvain.thenault@logilab.fr>  Mon, 29 Oct 2007 10:31:28 +0100
+    * removed some old backward compat code
 
-logilab-common (0.23.1-1) unstable; urgency=low
+    * adbh: new intersect_all_support attribute
 
-  * new upstream release
+    * contexts: new pushd context manager
 
- -- Sylvain Thénault <sylvain.thenault@logilab.fr>  Tue, 23 Oct 2007 21:16:41 +0200
+    * shellutils: enhance acquire_lock method w/ race condition
 
-logilab-common (0.23.0-1) unstable; urgency=low
+    * configuration: fix case sensitivity pb w/ config file sections
 
-  * new upstream release
+    * pytest: reimplemented colorization
 
- -- Sylvain Thénault <sylvain.thenault@logilab.fr>  Wed, 17 Oct 2007 17:09:02 +0200
 
-logilab-common (0.22.2-1) unstable; urgency=low
 
-  * new upstream release
+2009-01-08  --  0.37.2
+    * configuration: encoding handling for configuration file generation
 
- -- Sylvain Thénault <sylvain.thenault@logilab.fr>  Mon, 25 Jun 2007 10:16:38 +0200
+    * adbh: fix Datetime type map for mysql
 
-logilab-common (0.22.1-1) unstable; urgency=low
+    * logging_ext: drop lldebug level which shouldn't be there
 
-  * new upstream release
 
- -- David Douard <david.douard@logilab.fr>  Mon, 18 Jun 2007 11:44:19 +0200
 
-logilab-common (0.22.0-1) unstable; urgency=low
+2008-12-11  --  0.37.1
+    * contexts: make the module syntactically correct wrt python2.4
 
-  * new upstream release
 
- -- Sylvain Thénault <sylvain.thenault@logilab.fr>  Mon, 14 May 2007 12:04:08 +0200
 
-logilab-common (0.21.3-1) unstable; urgency=low
+2008-12-09  --  0.37.0
+    * contexts: new module for context managers, keeping py <2.4 syntax compat
+      for distribution (only `tempdir` cm for now)
 
-  * new upstream release
+    * tasksqueue: new module containing a class to handle prioritized tasks queue
 
- -- Adrien.DiMascio <Adrien.DiMascio@logilab.fr>  Mon, 12 Feb 2007 15:26:12 +0100
+    * proc: new module for process information / resource control
 
-logilab-common (0.21.2-1) unstable; urgency=low
+    * optik_ext: new time/bytes option types, using textutils conversion function
 
-  * new upstream release
+    * logging_ext: new set_log_methods / init_log utility functions
 
- -- Adrien.DiMascio <Adrien.DiMascio@logilab.fr>  Mon,  5 Feb 2007 09:31:49 +0100
 
-logilab-common (0.21.1-1) unstable; urgency=low
 
-  * new upstream release
+2008-10-30  --  0.36.0
+    * configuration:
+      - option yn is now behaving like a flag (i.e --ex : if ex.default=True and --ex in sys.args then ex.value=False)
+      - new attribute hide in option (i.e --ex : if --ex has 'hide':True then the option will not be displayed in man or --help)
 
- -- Sylvain Thénault <sylvain.thenault@logilab.fr>  Tue, 19 Dec 2006 12:46:10 +0100
+    * pytest:
+      - add colors in display
+      - new option --restart that skips tests that succeeded on last run
 
-logilab-common (0.21.0-2) unstable; urgency=low
+    * cache: new herits from dict class
 
-  * Debian upload of the new release
+    * decorators: add @require_version @require_module that skip test if decorators are not satisfied
 
- -- Alexandre Fayolle <afayolle@debian.org>  Thu, 23 Nov 2006 13:31:38 +0100
 
-logilab-common (0.21.0-1) unstable; urgency=low
 
-  * new upstream release
+2008-10-09  --  0.35.3
+    * graph: new has_path method
 
- -- Sylvain Thénault <sylvain.thenault@logilab.fr>  Tue, 14 Nov 2006 15:14:34 +0100
 
-logilab-common (0.20.2-1) unstable; urgency=low
 
-  * new upstream release
+2008-10-01  --  0.35.2
+    * configuration:
+      - fix #6011: lgc.configuration ignore customized option values
+      - fix #3278: man page generation broken   
 
- -- Sylvain Thénault <sylvain.thenault@logilab.fr>  Fri,  3 Nov 2006 11:35:19 +0100
+    * dropped context.py module which broke the debian package when
+      some python <2.5 is installed (#5979)
 
-logilab-common (0.20.1-1) unstable; urgency=low
 
-  * new upstream release
 
- -- Sylvain Thénault <sylvain.thenault@logilab.fr>  Wed,  1 Nov 2006 13:42:47 +0100
+2008-09-10  --  0.35.0
+    * fix #5945: wrong edge properties in graph.DotBackend
 
-logilab-common (0.20.0-2) unstable; urgency=low
+    * testlib: filter tests with tag decorator
 
-  * fix installation
+    * shellutils: new simple unzip function
 
- -- Sylvain Thénault <sylvain.thenault@logilab.fr>  Mon, 30 Oct 2006 13:22:00 +0100
 
-logilab-common (0.20.0-1) unstable; urgency=low
 
-  * new upstream release
+2008-08-07  --  0.34.0
+    * changelog: properly adds new line at the end of each entry
 
- -- Sylvain Thénault <sylvain.thenault@logilab.fr>  Fri, 27 Oct 2006 13:07:18 +0200
+    * testlib: add a with_tempdir decorator ensuring all temporary files and dirs are removed
 
-logilab-common (0.19.3-1) unstable; urgency=low
+    * graph: improve DotBackend configuration. graphiz rendered can now be selected
+      and additional graph parameter used
 
-  * new upstream release
+    * db: support of Decimal Type
 
- -- Sylvain Thénault <sylvain.thenault@logilab.fr>  Mon,  2 Oct 2006 11:55:33 +0200
 
-logilab-common (0.19.2-1) unstable; urgency=low
 
-  * new upstream release
+2008-06-25  --  0.33.0
+    * decorators: new @locked decorator
 
- -- Sylvain Thénault <sylvain.thenault@logilab.fr>  Mon, 25 Sep 2006 16:45:11 +0200
+    * cache: make it thread safe, changed behaviour so that when cache size is 0
+      and __delitem__ is called, a KeyError is raised (more consistent)
 
-logilab-common (0.19.1-1) unstable; urgency=medium
+    * testlib:
+      - added assertIsNot, assertNone and assertNotNone assertion
+      - added assertUnorderedIterableEquals
+      - added assertDirEquals
+      - various failure output improvement
 
-  * New upstream release
-  * Added conflict with packages previously built by logilab-common and
-    available in Stable. (closes: #388322)
-  * Urgency set to medium because it closes an RC bug
+    * umessage: umessage.date() may return unparsable string as is instead of None
 
- -- Alexandre Fayolle <afayolle@debian.org>  Fri, 22 Sep 2006 13:57:44 +0200
+    * compat: adds a max function taking 'key' as keyword argument as in 2.5
 
-logilab-common (0.19.0-3) unstable; urgency=medium
+    * configuration: escape rest when printing for default value
 
-  * Remove leftover files from package in Stable (closes: #388322)
-  * Urgency set to medium because it closes an RC bug
 
- -- Alexandre Fayolle <afayolle@debian.org>  Thu, 21 Sep 2006 16:27:08 +0200
 
-logilab-common (0.19.0-2) unstable; urgency=low
+2008-06-08  --  0.32.0
+    * textutils: add the apply_unit function
 
-  * Uploaded to Debian
+    * testlib:
+      - added a assertXMLEqualsTuple test assertion
+      - added a assertIs assertion
 
- -- Alexandre Fayolle <afayolle@debian.org>  Tue, 19 Sep 2006 10:04:46 +0200
 
-logilab-common (0.19.0-1) unstable; urgency=low
 
-  * new upstream release
+2008-05-08  --  0.31.0
+    * improved documentation and error messages
 
- -- Adrien.DiMascio <Adrien.DiMascio@logilab.fr>  Tue,  5 Sep 2006 19:06:42 +0200
+    * testlib: support a msg argument on more assertions, pysqlite2 as default
 
-logilab-common (0.18.0-1) unstable; urgency=low
+    * pytest: pytestconf.py for customization
 
-  * new upstream release
 
- -- Adrien.DiMascio <Adrien.DiMascio@logilab.fr>  Thu, 10 Aug 2006 10:38:01 +0200
 
-logilab-common (0.17.0-2) unstable; urgency=low
+2008-03-26  --  0.30.0
+    * db: remember logged user on the connection
 
-  * removed python-xml dependency
+    * clcommands: commands may be hidden (e.g. not displayed in help), generic
+      ListCommandsCommand useful to build bash completion helpers 
 
- -- Adrien.DiMascio <Adrien.DiMascio@logilab.fr>  Mon, 17 Jul 2006 17:08:15 +0200
+    * changelog: module to parse ChangeLog file as this one, backported from
+      logilab.devtools
 
-logilab-common (0.17.0-1) unstable; urgency=low
 
-  * new upstream release
 
- -- Adrien.DiMascio <Adrien.DiMascio@logilab.fr>  Thu, 13 Jul 2006 15:55:03 +0200
+2008-03-12  --  0.29.1
+    * date: new nb_open_days function counting worked days between two date
 
-logilab-common (0.16.1-1) unstable; urgency=low
+    * adbh: add -p option to mysql commands to ask for password
 
-  * Updated to new Python Policy (closes: #373459)
 
- -- Alexandre Fayolle <afayolle@debian.org>  Wed, 14 Jun 2006 17:11:00 +0200
 
-logilab-common (0.16.1-1) unstable; urgency=low
+2008-03-05  --  0.29.0
+    * adbh: mysql doesn't support ILIKE, implement list_indices for mysql
 
-  * new upstream release
+    * db: mysql adapter use mx DateTime when available, fix unicode handling
 
- -- Adrien.DiMascio <Adrien.DiMascio@logilab.fr>  Thu,  8 Jun 2006 15:23:22 +0200
 
-logilab-common (0.16.0-1) unstable; urgency=low
 
-  * new upstream release
+2008-02-18  --  0.28.2
+    * testlib: restore python2.3 compatibility
 
- -- Sylvain Thénault <sylvain.thenault@logilab.fr>  Fri, 19 May 2006 12:20:03 +0200
 
-logilab-common (0.15.1-1) unstable; urgency=low
 
-  * new upstream release
+2008-02-15  --  0.28.1
+    * testlib: introduce InnerTest class to name generative tests, fix
+      generative tests description storage
 
- -- Sylvain Thénault <sylvain.thenault@logilab.fr>  Tue, 25 Apr 2006 14:01:32 +0200
+    * pytest: fix -s option
 
-logilab-common (0.15.0-1) unstable; urgency=low
+    * modutils: included Stefan Rank's patch to deal with 2.4 relative import
 
-  * new upstream release
+    * configuration: don't give option's keywords not recognized by optparse,
+      fix merge_options function
 
- -- Sylvain Thénault <sylvain.thenault@logilab.fr>  Tue, 28 Mar 2006 12:34:26 +0200
 
-logilab-common (0.14.1-1) unstable; urgency=low
 
-  * new upstream release
+2008-02-05  --  0.28.0
+    * date: new `add_days_worked` function
 
- -- Sylvain Thénault <sylvain.thenault@logilab.fr>  Mon,  6 Mar 2006 09:04:34 +0100
+    * shellutils: new `chown` function
 
-logilab-common (0.14.0-1) unstable; urgency=low
+    * testlib: new `strict` argument to assertIsInstance
 
-  * new upstream release
+    * __init__: new `attrdict` and `nullobject` classes
 
- -- Sylvain Thénault <sylvain.thenault@logilab.fr>  Tue, 28 Feb 2006 17:37:59 +0100
 
-logilab-common (0.13.1-4) unstable; urgency=low
 
-  * Force removal of /usr/lib/python2.?/site-packages/logilab/__init__.py*
-    (closes: #353512)
-  * Add Conflicts with version of packages installing modules in
-    subdirectories of /usr/lib/python2.?/site-packages/logilab/
+2008-01-25  --  0.27.0
+    * deprecation: new class_moved utility function
 
- -- Alexandre Fayolle <afayolle@debian.org>  Mon, 20 Feb 2006 11:13:22 +0100
+    * interface: fix subinterface handling
 
-logilab-common (0.13.1-3) unstable; urgency=low
 
-  * upload new release to Debian
 
- -- Alexandre Fayolle <afayolle@debian.org>  Fri, 10 Feb 2006 16:27:27 +0100
+2008-01-10  --  0.26.1
+    * optparser: support --version at main command level
 
-logilab-common (0.13.1-2) unstable; urgency=low
+    * testlib: added man page for pytest
 
-  * fixed logilab/__init__.py handling
+    * textutils: fix a bug in normalize{_,_rest_}paragraph which may cause
+      infinite loop if an indent string containing some spaces is given
 
- -- Sylvain Thénault <sylvain.thenault@logilab.fr>  Mon,  6 Feb 2006 16:36:52 +0100
 
-logilab-common (0.13.1-1) unstable; urgency=low
 
-  * new upstream release
+2008-01-07  --  0.26.0
+    * db: binarywrap support
 
- -- Adrien Di Mascio <Adrien.DiMascio@logilab.fr>  Fri,  3 Feb 2006 12:37:59 +0100
+    * modutils: new LazyObject class
 
-logilab-common (0.13.0-3) unstable; urgency=low
 
-  * restored Conflicts in control...
 
- -- Sylvain Thénault <sylvain.thenault@logilab.fr>  Mon, 23 Jan 2006 15:35:14 +0100
+2007-12-20  --  0.25.2
+    * adbh: new needs_from_clause variable on db helper
 
-logilab-common (0.13.0-2) unstable; urgency=low
 
-  * removed Conflicts from control
 
- -- Sylvain Thénault <sylvain.thenault@logilab.fr>  Tue, 10 Jan 2006 17:03:00 +0100
+2007-12-11  --  0.25.1
+    * pytest: new --profile option, setup module / teardown module hook,
+              other fixes and enhancements
 
-logilab-common (0.13.0-1) unstable; urgency=low
+    * db: mysql support fixes
 
-  * new upstream release
-  * reorganization to install into site-python, removing the need for
-    pythonX.X- packages (closes: #351128)
+    * adbh: fix postgres list_indices implementation
 
- -- Sylvain Thénault <sylvain.thenault@logilab.fr>  Fri,  6 Jan 2006 10:50:39 +0100
 
-logilab-common (0.12.0-3) unstable; urgency=low
 
-  * Dropped python2.1 support (closes: #337443)
-  * Added small patch from upstream CVS to allow unicode with mysql databases
-  * Changed standards to 3.6.2
-  * Fixed a lintian warning about a badly formatted line in debian/changelog
-  * updated fsf address in copyright file
+2007-11-26  --  0.25.0
+    * adbh:
+      - list_tables implementation for sqlite
+      - new list_indices, create_index, drop_index methods
 
- -- Alexandre Fayolle <afayolle@debian.org>  Wed,  9 Nov 2005 07:53:32 +0100
+    * restore python < 2.4 compat
 
-logilab-common (0.12.0-2) unstable; urgency=low
 
-  * Remove logilab/__init__.py in prerm scripts  (closes: #334087)
 
- -- Alexandre Fayolle <afayolle@debian.org>  Wed, 19 Oct 2005 08:48:59 +0200
+2007-10-29  --  0.24.0
+    * decorators: new classproperty decorator
 
-logilab-common (0.12.0-1) unstable; urgency=low
+    * adbh: new module containing advanced db helper which were in the "db"
+      module, with additional registered procedures handling 
 
-  * New upstream release
 
- -- Alexandre Fayolle <afayolle@debian.org>  Tue,  6 Sep 2005 11:31:33 +0200
 
-logilab-common (0.11.0-1) unstable; urgency=low
+2007-10-23  --  0.23.1
+    * modutils: fix load_module_from_* (even with use_sys=False, it should
+      try to get outer packages from sys.modules)
 
-  * new umpstream release
 
- -- Sylvain Thénault <sylvain.thenault@logilab.fr>  Mon, 25 Jul 2005 12:36:01 +0200
 
-logilab-common (0.10.1-1) unstable; urgency=low
+2007-10-17  --  0.23.0
+    * db:
 
-  * new upstream release
+        - mark support_users and support_groups methods as obsolete in
+          favor of users_support and groups_support attributes
+        - new ilike_support property on dbms helpers
+        - extended db helper api
+        - completed mysql support
 
- -- Sylvain Thénault <sylvain.thenault@logilab.fr>  Thu,  7 Jul 2005 13:25:43 +0200
+    * textutils: new unormalize function to normalize diacritical chars by
+      their ascii equivalent
 
-logilab-common (0.10.0-1) unstable; urgency=low
+    * modutils: new load_module_from_file shortcut function
 
-  * new upstream release
+    * clcommands: pop_args accept None as value for expected_size_after,
+      meaning remaining args should not be checked
 
- -- Sylvain Thénault <sylvain.thenault@logilab.fr>  Wed,  4 May 2005 12:49:25 +0200
+    * interface: new extend function to dynamically add an implemented interface
+      to a new style class      
 
-logilab-common (0.9.3-1) unstable; urgency=low
 
-  * new upstream release
 
- -- Sylvain Thénault <sylvain.thenault@logilab.fr>  Thu, 14 Apr 2005 11:51:23 +0200
+2007-06-25  --  0.22.2
+    * new 'typechanged' action for configuration.read_old_config
 
-logilab-common (0.9.2-1) unstable; urgency=low
 
-  * new upstream release
 
- -- Sylvain Thénault <sylvain.thenault@logilab.fr>  Wed, 16 Feb 2005 13:36:30 +0100
+2007-05-14  --  0.22.1
+    * important bug fix in db.py
 
-logilab-common (0.9.1-1) unstable; urgency=low
+    * added history in pytest debugger sessions
 
-  * new upstream release
+    * fix pytest coverage bug
 
- -- Sylvain Thénault <sylvain.thenault@logilab.fr>  Fri,  4 Feb 2005 17:41:06 +0100
+    * fix textutils test
 
-logilab-common (0.9.0-1) unstable; urgency=low
+    * fix a bug which provoked a crash if devtools was not installed
 
-  * new upstream release
-  * build package for python 2.4
-  * updated copyright
 
- -- Sylvain Thénault <sylvain.thenault@logilab.fr>  Thu, 20 Jan 2005 18:00:45 +0100
 
-logilab-common (0.8.0-1) unstable; urgency=low
+2007-05-14  --  0.22.0
+    * pytest improvements
 
-  * new upstream release
+    * shellutils: use shutil.move instead of os.rename as default action
+      of mv
 
- -- Sylvain Thénault <sylvain.thenault@logilab.fr>  Tue,  4 Jan 2005 17:57:04 +0100
+    * db: new `list_users` and `sql_drop_unique_constraint` methods on
+      advanced helpers
 
-logilab-common (0.7.1-1) unstable; urgency=low
+    * deprecation: new `obsolete` decorator
 
-  * new upstream release
 
- -- Alexandre Fayolle <afayolle@debian.org>  Tue,  9 Nov 2004 15:36:21 +0100
 
-logilab-common (0.7.0-1) unstable; urgency=low
+2007-02-12  --  0.21.3
+    * fixed cached decorator to use __dict__ instead of attribute lookup,
+      avoiding potential bugs with inheritance when using cached class 
+      methods
 
-  * new upstream release
 
- -- Sylvain Thénault <sylvain.thenault@logilab.fr>  Mon, 11 Oct 2004 16:29:25 +0200
 
-logilab-common (0.6.0-1) unstable; urgency=low
+2007-02-05  --  0.21.2
+    * fix ReST normalization (#3471)
 
-  * new upstream release
-  * updated debian/watch
-  * updated maintainer address
 
- -- Alexandre Fayolle <afayolle@debian.org>  Thu,  7 Oct 2004 19:39:46 +0200
 
-logilab-common (0.5.2-1) unstable; urgency=low
+2006-12-19  --  0.21.1
+    * tree: make Node iterable (iter on its children)
 
-  * new upstream release
-  * initial upload to Debian (closes: #258239)
+    * configuration: fix #3197 (OptionsManagerMixin __init__ isn't passing
+      correctly its "version" argument) 
 
- -- Alexandre Fayolle <alexandre.fayolle@logilab.fr>  Thu,  8 Jul 2004 12:55:49 +0200
+    * textutils: new 'rest' argument to normalize_text to better deal with
+      ReST formated text
 
-logilab-common (0.5.1-1) unstable; urgency=low
+    * some packaging fixes
 
-  * new upstream release
 
- -- Sylvain Thénault <sylvain.thenault@logilab.fr>  Fri,  4 Jun 2004 09:57:57 +0200
 
-logilab-common (0.5.0-2) unstable; urgency=low
+2006-11-14  --  0.21.0
+    * db:
 
-  * add conflicts with ginco 1.0
+        - new optional keepownership argument to backup|restore_database methods
+        - only register mxDatetime converters on psycopg2 adapter if
+          mx.DateTime is available
 
- -- Sylvain Thénault <sylvain.thenault@logilab.fr>  Thu, 27 May 2004 14:02:04 +0200
+    * moved some stuff which was in common __init__ file into specific
+      module. At this occasion new "decorators" and "deprecation" modules
+      has been added
 
-logilab-common (0.5.0-1) unstable; urgency=low
+    * deprecated fileutils.[files_by_ext,include_files_by_ext,exclude_files_by_ext]
+      functions in favor of new function shellutils.find        
 
-  * new upstream release
+    * mark the following modules for deprecation, they will be removed in a
+      near version:
 
- -- Sylvain Thénault <sylvain.thenault@logilab.fr>  Mon, 10 May 2004 16:33:04 +0200
+    * astutils: moved to astng
 
-logilab-common (0.4.5-1) unstable; urgency=low
+    * bind (never been used)
 
-  * new upstream release
+    * html: deprecated
 
- -- Sylvain Thénault <sylvain.thenault@logilab.fr>  Fri, 20 Feb 2004 13:59:13 +0100
+    * logger/logservice: use logging module
 
-logilab-common (0.4.4-1) unstable; urgency=low
+    * monclient/monserver (not used anymore)
 
-  * new upstream release
+    * patricia (never been used)
 
- -- Sylvain Thénault <sylvain.thenault@logilab.fr>  Tue, 17 Feb 2004 12:20:24 +0100
+    * twisted_distutils (not used anymore)
 
-logilab-common (0.4.3-1) unstable; urgency=low
+    * removed the following functions/methods which have been deprecated for a
+      while now:
 
-  * new upstream release
+    * modutils.load_module_from_parts
 
- -- Sylvain Thénault <sylvain.thenault@logilab.fr>  Wed, 11 Feb 2004 10:42:08 +0100
+    * textutils.searchall
 
-logilab-common (0.4.2-1) unstable; urgency=low
+    * tree.Node.leafs
 
-  * new upstream release
+    * fileutils.get_by_ext, filetutils.get_mode, fileutils.ensure_mode
 
- -- Sylvain Thénault <sylvain.thenault@logilab.fr>  Tue, 23 Dec 2003 14:52:48 +0100
+    * umessage: more robust charset handling
 
-logilab-common (0.4.1-1) unstable; urgency=low
 
-  * new upstream release
 
- -- Sylvain Thénault <sylvain.thenault@logilab.fr>  Mon, 24 Nov 2003 15:02:03 +0100
+2006-11-03  --  0.20.2
+    * fileutils: new remove_dead_links function
 
-logilab-common (0.4.0-1) unstable; urgency=low
+    * date: add missing strptime import
 
-  * new upstream release
 
- -- Sylvain Thénault <sylvain.thenault@logilab.fr>  Thu, 13 Nov 2003 18:05:14 +0100
 
-logilab-common (0.3.5-1) unstable; urgency=low
+2006-11-01  --  0.20.1
+    * umessage:
+      - new message_from_string function
+      - fixed get_payload encoding bug
 
-  * new upstream release
-  * move tests in a separated packages
+    * db: default postgres module is now psycopg2, which has been customized
+      to return mx.Datetime objects for date/time related types
 
- -- Sylvain Thénault <sylvain.thenault@logilab.fr>  Tue, 14 Oct 2003 15:27:06 +0200
 
-logilab-common (0.3.4-1) unstable; urgency=low
 
-  * new upstream release
+2006-10-27  --  0.20.0
+    * db:
+      - fixed date handling
+      - new methods on advanced helper to generate backup commands
 
- -- Sylvain Thénault <sylvain.thenault@logilab.fr>  Wed,  8 Oct 2003 15:12:14 +0200
+    * configuration: basic deprecated config handling support
 
-logilab-common (0.3.3-1) unstable; urgency=low
+    * new implementation of pytest
 
-  * new upstream release
+    * backport a dot backend from yams into a new "graph" module
 
- -- Sylvain Thénault <sylvain.thenault@logilab.fr>  Wed,  1 Oct 2003 09:56:01 +0200
 
-logilab-common (0.3.2-2) unstable; urgency=low
 
-  * fix postinst script to avoid compilation of all packages installed for a given
-  python version.
-  * clean prerm script
+2006-10-03  --  0.19.3
+    * fixed bug in textutils.normalise_[text|paragraph] with unsplitable
+      word larger than the maximum line size
 
- -- Sylvain Thénault <sylvain.thenault@logilab.fr>  Mon, 22 Sep 2003 17:27:33 +0200
+    * added pytest.bat for windows installation
 
-logilab-common (0.3.2-1) unstable; urgency=low
+    * changed configuration.generate_config to include None values into the
+      generated file
 
-  * new upstream release
 
- -- Sylvain Thénault <sylvain.thenault@logilab.fr>  Mon, 22 Sep 2003 10:39:57 +0200
 
-logilab-common (0.3.1-1) unstable; urgency=low
+2006-09-25  --  0.19.2
+    * testlib:
+      - fixed a bug in find_test making it returns some bad test names
+      - new assertIsInstance method on TestCase
 
-  * new upstream release
+    * optik_ext: make it works if mx.DateTime is not installed, in which case
+      the date type option won't be available
 
- -- Sylvain Thénault <sylvain.thenault@logilab.fr>  Thu, 18 Sep 2003 10:51:58 +0200
+    * test fixes
 
-logilab-common (0.3.0-1) unstable; urgency=low
 
-  * new upstream release
 
- -- Sylvain Thénault <sylvain.thenault@logilab.fr>  Fri, 12 Sep 2003 13:55:36 +0200
+2006-09-22  --  0.19.1
+    * db:
 
-logilab-common (0.2.3-1) unstable; urgency=low
+        - fixed bug when querying boolean on sqlite using python's bool type
+        - fixed time handling and added an adapter for DateTimeDeltaType
+        - added "drop_on_commit" argument to create_temporary_table on db helper
+        - added missing implementation of executemany on pysqlite2 wrapper to
+          support pyargs correctly like execute
 
-  * new upstream release
+    * optik_ext: fixed "named" type option to support csv values and to return
+      a dictionary
 
- -- Sylvain Thénault <sylvain.thenault@logilab.fr>  Mon, 25 Aug 2003 16:01:07 +0200
 
-logilab-common (0.2.2-1) unstable; urgency=low
 
-  * new upstream release
+2006-09-05  --  0.19.0
+    * new umessage module which provides a class similar to the standard
+      email.Message class but returning unicode strings
 
- -- Sylvain Thénault <sylvain.thenault@logilab.fr>  Wed, 11 Jun 2003 14:57:09 +0200
+    * new clcommands module to handle commands based command line tool
+      (based on the configuration module)
 
-logilab-common (0.2.1-1) unstable; urgency=low
+    * new "date" option type in optik_ext
 
-  * new upstream release
+    * new AttrObject in testlib to create objects in test with arbitrary attributes
 
- -- Sylvain Thénault <sylvain.thenault@logilab.fr>  Wed,  4 Jun 2003 18:03:38 +0200
+    * add pytest to run project's tests and get rid of all runtests.py
 
-logilab-common (0.2.0-1) unstable; urgency=low
+    * add pytest option to enable design-by-contract using aspects
 
-  * new upstream release
+    * some enhancements to the configuration module
 
- -- Sylvain Thénault <sylvain.thenault@logilab.fr>  Mon,  2 Jun 2003 11:30:56 +0200
 
-logilab-common (0.1.3-1) unstable; urgency=low
 
-  * new upstream release
+2006-08-09  --  0.18.0
+    * added -c / --capture option to testlib.unittest_main
 
- -- Sylvain Thénault <sylvain.thenault@logilab.fr>  Mon, 19 May 2003 11:04:20 +0200
+    * fixed bugs in lgc.configuration
 
-logilab-common (0.1.2-1) unstable; urgency=low
+    * optparser: added a OptionParser that extends optparse's with commands
 
-  * new upstream release
 
- -- Sylvain Thénault <sylvain.thenault@logilab.fr>  Thu, 17 Apr 2003 10:18:08 +0200
 
-logilab-common (0.1.1-1) unstable; urgency=low
+2006-07-13  --  0.17.0
+    * python2.5 compatibility (testlib.py + compat.py)
 
-  * new upstream release
+    * testlib.assertListEquals return all errors at once
 
- -- Sylvain Thénault <sylvain.thenault@logilab.fr>  Fri, 28 Feb 2003 13:03:02 +0100
+    * new "password" option type in optik_ext
 
-logilab-common (0.1.0-1) unstable; urgency=low
+    * configuration: refactored to support interactive input of a configuration
 
-  * Initial Release.
 
- -- Sylvain Thénault <sylvain.thenault@logilab.fr>  Mon, 17 Feb 2002 12:03:21 +0200
+
+2006-06-08  --  0.16.1
+    * testlib: improved test collections
+
+    * compat: added cmp argument to sorted
+
+
+
+2006-05-19  --  0.16.0
+    * testlib:
+
+        - added a set of command line options (PYDEBUG is deprecated,
+          use the -i/--pdb option, and added -x/--exitfirst option)
+        - added support for generative tests
+
+    * db:
+      - fix get_connection parameter order and host/port handling
+      - added .sql_temporary_table method to advanced func helpers
+      - started a psycopg2 adapter
+
+    * configuration: enhanced to handle default value in help and man pages
+      generation (require python >= 2.4)
+
+
+
+2006-04-25  --  0.15.1
+    * db: add missing port handling to get_connection function and
+      dbapimodule.connect methods
+
+    * testlib: various fixes and minor improvements
+
+
+
+2006-03-28  --  0.15.0
+    * added "cached" decorator and a simple text progression bar into __init__
+
+    * added a simple text progress bar into __init__
+
+    * configuration: fixed man page generation when using python 2.4
+
+    * db: added pysqllite2 support, preconfigured to handle timestamp using
+      mxDatetime and to correctly handle boolean types
+
+
+
+2006-03-06  --  0.14.1
+    * backported file support and add LOG_CRIT to builtin in logservice module
+
+
+
+2006-02-28  --  0.14.0
+    * renamed assertXML*Valid to assertXML*WellFormed and deprecated the old name
+
+    * fixed modutils.load_module_from_*
+
+
+
+2006-02-03  --  0.13.1
+    * fix some tests, patch contributed by  Marien Zwart
+
+    * added ability to log into a file with make_logger()
+
+
+
+2006-01-06  --  0.13.0
+    * testlib: ability to skip a test
+
+    * configuration:
+
+        - cleaner configuration file generation
+        - refactoring so that we can have more control on file
+          configuration loading using read_config_file and load_config_file
+          instead of load_file_configuration
+
+    * modutils: fix is_relative to return False when from_file is a file
+      located somewhere in sys.path
+
+    * ureport: new "escaped" attribute on Text nodes, controling html escaping
+
+    * compat: make set iterable and support more other set operations...
+
+    * removed the astng sub-package, since it's now self-distributed as
+      logilab-astng
+
+
+
+2005-09-06  --  0.12.0
+    * shellutils: bug fix in mv()
+
+    * compat:
+          - use set when available
+          - added sorted and reversed
+
+    * table: new methods and some optimizations
+
+    * tree: added some deprecation warnings
+
+
+
+2005-07-25  --  0.11.0
+    * db: refactoring, added sqlite support, new helpers to support DBMS
+      specific features
+
+
+
+2005-07-07  --  0.10.1
+    * configuration: added basic man page generation feature
+
+    * ureports: unicode handling, some minor fixes
+
+    * testlib: enhance MockConnection
+
+    * python2.2 related fixes in configuration and astng
+
+
+
+2005-05-04  --  0.10.0
+    * astng: improve unit tests coverage
+
+    * astng.astng: fix Function.format_args, new method
+      Function.default_value, bug fix in Node.resolve
+
+    * astng.builder: handle classmethod and staticmethod as decorator,
+      handle data descriptors when building from living objects
+
+    * ureports:
+      - new docbook formatter
+      - handle ReST like urls in the text writer
+      - new build_summary utility function
+
+
+
+2005-04-14  --  0.9.3
+    * optik_ext: add man page generation based on optik/optparse options
+      definition
+
+    * modutils: new arguments to get_source_file to handle files without
+      extensions
+
+    * astng: fix problem with the manager and python 2.2 (optik related)
+
+
+
+2005-02-16  --  0.9.2
+    * textutils:
+
+        - added epydoc documentation
+        - new sep argument to the get_csv function
+        - fix pb with normalize_* functions on windows platforms
+
+    * fileutils:
+
+        - added epydoc documentation
+        - fixed bug in get_by_ext (renamed files_by_ext) with the
+          exclude_dirs argument
+
+    * configuration:
+      - fixed a bug in configuration file generation on windows platforms
+      - better test coverage
+
+    * fixed testlib.DocTest which wasn't working anymore with recent
+      versions of pyunit
+
+    * added "context_file" argument to file_from_modpath to avoid
+      possible relative import problems
+
+    * astng: use the new context_file argument from Node.resolve()
+
+
+
+2005-02-04  --  0.9.1
+    * astng:
+
+        - remove buggy print
+        - fixed builder to deal with builtin methods
+        - fixed raw_building.build_function with python 2.4
+
+    * modutils: code cleanup, some reimplementation based on "imp",
+      better handling of windows specific extensions, epydoc documentation
+
+    * fileutils: new exclude_dirs argument to the get_by_ext function
+
+    * testlib: main() support -p option to run test in a profiled mode
+
+    * generated documentation for modutils in the doc/ subdirectory
+
+
+
+2005-01-20  --  0.9.0
+    * astng:
+
+        - refactoring of some huge methods
+        - fix interface resolving when __implements__ is defined in a parent
+          class in another module
+        - add special code in the builder to fix problem with qt
+        - new source_line method on Node
+        - fix sys.path during parsing to avoid some failure when trying
+          to get imported names by `from module import *`, and use an astng
+          building instead of exec'ing the statement
+        - fix possible AttributeError with Function.type
+        - manager.astng_from_file fallback to astng_from_module if possible
+
+    * textutils: fix bug in normalize_paragraph, unquote handle empty string
+      correctly
+
+    * modutils:
+
+        - use a cache in has_module to speed up things when heavily used
+        - fix file_from_modpath to handle pyxml and os.path
+
+    * configuration: fix problem with serialization/deserialization of empty
+      string
+
+
+
+2005-01-04  --  0.8.0
+    * modutils: a lot of fixes/rewrite on various functions to avoid
+      unnecessary imports, sys.path pollution, and other bugs (notably
+      making pylint reporting wrong modules name/path)
+
+    * astng: new "inspector" module, initially taken from pyreverse code
+      (http://www.logilab.org/projects/pyreverse), miscellaneous bug fixes
+
+    * configuration: new 'usage' parameter on the Configuration
+      initializer
+
+    * logger: unicode support
+
+    * fileutils: get_by_ext also ignore ".svn" directories, not only "CVS"
+
+
+
+2004-11-03  --  0.7.1
+    * astng:
+
+        - don't raise a syntax error on files missing a trailing \n.
+        - fix utils.is_abstract (was causing an unexpected exception if a
+          string exception was raised).
+        - fix utils.get_implemented.
+        - fix file based manager's cache problem.
+
+    * textutils: fixed normalize_text / normalize_paragraph functions
+
+
+
+2004-10-11  --  0.7.0
+    * astng: new methods on the manager, returning astng with nodes for
+      packages (i.e. recursive structure instead of the flat one), with
+      automatic lazy loading + introduction of a dict like interface to
+      manipulate those nodes and Module, Class and Function nodes.
+
+    * logservice: module imported from the ginco project
+
+    * configuration: added new classes Configuration and
+      OptionsManager2Configuration adapter, fix bug in loading options
+      from file
+
+    * optik_ext/configuration: some new option type "multiple_choice"
+
+    * fileutils: new ensure_mode function
+
+    * compat: support for sum and enumerate
+
+
+
+2004-09-23  --  0.6.0
+    * db: added DBAPIAdapter
+
+    * textutils: fix in pretty_match causing malformated messages in pylint
+      added ansi colorization management
+
+    * modutils: new functions get_module_files, has_module and file_from_modpath
+
+    * astng: some new utility functions taken from pylint, minor changes to the
+      manager API, Node.resolve doesn't support anymore "living" resolution,
+      some new methods on astng nodes
+
+    * compat: new module for a transparent compatibility layer between
+      different python version (actually 2.2 vs 2.3 for now)
+
+
+
+2004-07-08  --  0.5.2
+    * astng: fix another bug in klassnode.ancestors() method...
+
+    * db: fix mysql access
+
+    * cli: added a space after the prompt
+
+
+
+2004-06-04  --  0.5.1
+    * astng: fix undefined var bug in klassnode.ancestors() method
+
+    * ureports: fix attributes on title layout
+
+    * packaging:fix the setup.py script to allow bdist_winst (well, the
+      generated installer has not been tested...) with the necessary
+      logilab/__init__.py file
+
+
+
+2004-05-10  --  0.5.0
+    * ureports: new Universal Reports sub-package
+
+    * xmlrpcutils: new xmlrpc utilities module
+
+    * astng: resolve(name) now handle (at least try) builtins
+
+    * astng: fixed Class.as_string (empty parent when no base classes)
+
+    * astng.builder: knows a little about method descriptors, Function with
+      unknown arguments have argnames==None.
+
+    * fileutils: new is_binary(filename) function
+
+    * textutils: fixed some Windows bug
+
+    * tree: base not doesn't have the "title" attribute anymore
+
+    * testlib: removed the spawn function (who used that ?!), added MockSMTP,
+      MockConfigParser, MockConnexion and DocTestCase (test class for
+      modules embedding doctest). All mocks objects are very basic and will be
+      enhanced as the need comes.
+
+    * testlib: added a TestCase class with some additional methods then
+      the regular unittest.TestCase class
+
+    * cli: allow specifying a command prefix by a class attributes,more
+      robust, print available commands on help
+
+    * db: new "binary" function to get the binary wrapper for a given driver,
+      and new "system_database" function returning the system database name
+      for different DBMS.
+
+    * configuration: better group control
+
+
+
+2004-02-20  --  0.4.5
+    * db: it's now possible to fix the modules search order. By default call
+      set_isolation_level if psycopg is used
+
+
+
+2004-02-17  --  0.4.4
+    * modutils: special case for os.path in get_module_part
+
+    * astng: handle special case where we are on a package node importing a module
+      using the same name as the package, which may end in an infinite loop
+      on relative imports in Node.resolve
+
+    * fileutils: new get_by_ext function
+
+
+
+2004-02-11  --  0.4.3
+    * astng: refactoring of Class.ancestor_for_* methods (now
+      depends on python 2.2 generators)
+
+    * astng: make it more robust
+
+    * configuration: more explicit exception when a bad option is
+      provided
+
+    * configuration: define a short version of an option using the "short"
+      keyword, taking a single letter as value
+
+    * configuration: new method global_set_option on the manager
+
+    * testlib : allow no "suite" nor "Run" function in test modules
+
+    * shellutils: fix bug in *mv*
+
+
+
+2003-12-23  --  0.4.2
+    * added Project class and some new methods to the ASTNGManger
+
+    * some new functions in astng.utils
+
+    * fixed bugs in some as_string methods
+
+    * fixed bug in textutils.get_csv
+
+    * fileutils.lines now take a "comments" argument, allowing to ignore
+      comment lines
+
+
+
+2003-11-24  --  0.4.1
+    * added missing as_string methods on astng nodes
+
+    * bug fixes on Node.resolve
+
+    * minor fixes in textutils and fileutils
+
+    * better test coverage (need more !)
+
+
+
+2003-11-13  --  0.4.0
+    * new textutils and shellutils modules
+
+    * full astng rewrite, now based on the compiler.ast package from the
+      standard library
+
+    * added next_sbling and previous_sibling methods to Node
+
+    * fix get_cycles
+
+
+
+2003-10-14  --  0.3.5
+    * fixed null size cache bug
+
+    * added 'sort_by_column*' methods for tables
+
+
+
+2003-10-08  --  0.3.4
+    * fix bug in asntg, occurring with python2.3 and modules including an
+      encoding declaration
+
+    * fix bug in astutils.get_rhs_consumed_names, occurring in lists
+      comprehension
+
+    * remove debug print statement from configuration.py which caused a
+      generation of incorrect configuration files.
+
+
+
+2003-10-01  --  0.3.3
+    * fix bug in modutils.modpath_from_file
+
+    * new module corbautils
+
+
+
+2003-09-18  --  0.3.2
+    * fix bug in modutils.load_module_from_parts
+
+    * add missing __future__ imports
+
+
+
+2003-09-18  --  0.3.1
+    * change implementation of modutils.load_module_from_name (use find_module
+      and load_module instead of __import__)
+
+    * more bug fixes in astng
+
+    * new functions in fileutils (lines, export) and __init__ (Execute)
+
+
+
+2003-09-12  --  0.3
+    * expect "def suite" or "def Run(runner=None)" on unittest module
+
+    * fixes in modutils
+
+    * major fixes in astng
+
+    * new fileutils and astutils modules
+
+    * enhancement of the configuration module
+
+    * new option type "named" in optik_the ext module
+
+
+
+2003-06-18  --  0.2.2
+    * astng bug fixes
+
+
+
+2003-06-04  --  0.2.1
+    * bug fixes
+
+    * fix packaging problem
+
+
+
+2003-06-02  --  0.2.0
+    * add the interface, modutils, optik_ext and configuration modules
+
+    * add the astng sub-package
+
+    * miscellaneous fixes
+
+
+
+2003-04-17  --  0.1.2
+    * add the stringio module
+
+    * minor fixes
+
+
+
+2003-02-28  --  0.1.1
+    * fix bug in tree.py
+
+    * new file distutils_twisted
+
+
+
+2003-02-17  --  0.1.0
+    * initial revision
+
+
+
