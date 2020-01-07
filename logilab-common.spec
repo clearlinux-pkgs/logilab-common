@@ -4,7 +4,7 @@
 #
 Name     : logilab-common
 Version  : 1.5.2
-Release  : 53
+Release  : 54
 URL      : https://files.pythonhosted.org/packages/d5/8a/c72755d7245c8aec6378672770f39a598f40c07131729ccbc7ab376b47ab/logilab-common-1.5.2.tar.gz
 Source0  : https://files.pythonhosted.org/packages/d5/8a/c72755d7245c8aec6378672770f39a598f40c07131729ccbc7ab376b47ab/logilab-common-1.5.2.tar.gz
 Summary  : collection of low-level Python packages and modules used by Logilab projects
