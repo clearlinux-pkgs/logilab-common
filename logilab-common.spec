@@ -4,7 +4,7 @@
 #
 Name     : logilab-common
 Version  : 1.5.2
-Release  : 55
+Release  : 56
 URL      : https://files.pythonhosted.org/packages/d5/8a/c72755d7245c8aec6378672770f39a598f40c07131729ccbc7ab376b47ab/logilab-common-1.5.2.tar.gz
 Source0  : https://files.pythonhosted.org/packages/d5/8a/c72755d7245c8aec6378672770f39a598f40c07131729ccbc7ab376b47ab/logilab-common-1.5.2.tar.gz
 Summary  : collection of low-level Python packages and modules used by Logilab projects
@@ -20,11 +20,17 @@ BuildRequires : pytest
 BuildRequires : setuptools
 
 %description
-Logilab's common library
 ========================
-What's this ?
--------------
-This package contains some modules used by different Logilab projects.
+        
+        What's this ?
+        -------------
+        
+        This package contains some modules used by different Logilab projects.
+        
+        It is released under the GNU Lesser General Public License.
+        
+        There is no documentation available yet but the source code should be clean and
+        well documented.
 
 %package bin
 Summary: bin components for the logilab-common package.
@@ -56,7 +62,8 @@ python components for the logilab-common package.
 Summary: python3 components for the logilab-common package.
 Group: Default
 Requires: python3-core
-Provides: pypi(logilab-common)
+Provides: pypi(logilab_common)
+Requires: pypi(setuptools)
 
 %description python3
 python3 components for the logilab-common package.
@@ -71,8 +78,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1583172086
-# -Werror is for werrorists
+export SOURCE_DATE_EPOCH=1583537390
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto "
 export FCFLAGS="$CFLAGS -fno-lto "
