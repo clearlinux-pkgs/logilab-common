@@ -1,6 +1,53 @@
 ChangeLog for logilab.common
 ============================
 
+2020-06-11 -- 1.7.1
+
+    * fix: import error on re.Pattern with python < 3.7
+
+2020-06-10 -- 1.7.0
+
+    * logilab-common requires python 3.6 now
+    * greatly improve our CI and migrate it to heptapod/gitlab-ci
+    * black the whole code base
+    * move test suit to pytest
+    * use check-manifest and fix related bugs in MANIFEST.in
+    * integrates flake8 and please the flake8 gods
+    * various fixes
+    * class_deprecation is not a class anymore
+    * pytest 5.4.2 breaks tests, pin to 5.4.1 for now
+
+2020-05-25 -- 1.6.4
+
+    * fix: rollback to old class_deprecation being a class behavior
+    * fix: @functools.wraps broke callable_renamed, write a @lazy_wraps and
+      use it everywhere in logilab.common.deprecation
+    * add docstring to LazyObject
+
+2020-05-11 -- 1.6.3
+
+    * fix: metaclass conflict in class_deprecated
+
+2020-05-11 -- 1.6.2
+
+    * fix: explicitly requires python 3.6 in setup.py
+
+2020-05-01 -- 1.6.1
+
+    * bug fix, bad usage of callable_renamed
+
+2020-04-30 -- 1.6.0
+
+    * logilab-common requires python >= 3.6 now
+    * use pyannotates to introduces types in all the modules
+    * introduce a list of new functions in logilab.common.deprecation: callable_renamed, attribute_renamed, argument_renamed, argument_remove
+    * renamed "renamed" to "callable_renamed", "deprecated" to
+      "callable_deprecated", "moved" to "callable_moved" for coherence
+    * refactor the whole logilab.common.deprecation to simplify its code
+    * automatically detect from which modules a deprecated utils is called
+    * correctly display the line where a deprecated utils is used
+    * various small fixes, thx mypy
+
 2019-12-04  -- 1.5.2
 
     * documentation is now available at https://logilab-common.readthedocs.io/
@@ -16,7 +63,7 @@ ChangeLog for logilab.common
 2016-10-03  -- 1.3.0
 
     * pytest: executable deprecated and renamed as logilab-pytest to prevent
-    conflict with pytest provided by http://pytest.org/
+      conflict with pytest provided by http://pytest.org/
 
 2016-03-15  -- 1.2.0
 
@@ -81,15 +128,15 @@ ChangeLog for logilab.common
     * fix textutils.py doctests for py3k
 
     * produce a clearer exception when dot is not installed (#253516)
- 
+
     * make source python3-compatible (3.3+), without using 2to3.  This
-     introduces a dependency on six (#265740)
+      introduces a dependency on six (#265740)
 
     * fix umessage header decoding on python 3.3 and newer (#149345)
 
     * WARNING: the compat module no longer exports 'callable', 'izip', 'imap',
-     'chain', 'sum', 'enumerate', 'frozenset', 'reversed', 'sorted', 'max',
-     'relpath', 'InheritableSet', or any subprocess-related names.
+      'chain', 'sum', 'enumerate', 'frozenset', 'reversed', 'sorted', 'max',
+      'relpath', 'InheritableSet', or any subprocess-related names.
 
 2014-07-30  --  0.62.1
     * shellutils: restore py 2.5 compat by removing usage of class decorator
@@ -97,7 +144,7 @@ ChangeLog for logilab.common
     * pytest: drop broken --coverage option
 
     * testlib: support for skipping whole test class and conditional skip, don't
-     run setUp for skipped tests
+      run setUp for skipped tests
 
     * configuration: load options in config file order (#185648)
 
@@ -112,7 +159,7 @@ ChangeLog for logilab.common
     * pdf_ext: removed, it had no known users (CVE-2014-1838)
 
     * shellutils: fix tempfile issue in Execute, and deprecate it
-     (CVE-2014-1839)
+      (CVE-2014-1839)
 
     * pytest: use 'env' to run the python interpreter
 
@@ -124,16 +171,16 @@ ChangeLog for logilab.common
     * modutils:
 
     * don't propagate IOError when package's __init__.py file doesn't
-         exist (#174606)
+      exist (#174606)
 
     * ensure file is closed, may cause pb depending on the interpreter, eg
-       pypy) (#180876)
+      pypy) (#180876)
 
     * fix support for `extend_path` based nested namespace packages ;
-       Report and patch by John Johnson (#177651)
+      Report and patch by John Johnson (#177651)
 
     * fix some cases of failing python3 install on windows platform / cross
-     compilation (#180836)
+      compilation (#180836)
 
 
 
@@ -145,9 +192,9 @@ ChangeLog for logilab.common
     * modutils:
 
         - fix typo causing name error in python3 / bad message in python2
-       (#136037)
+          (#136037)
         - fix python3.3 crash in file_from_modpath due to implementation
-        change of imp.find_module wrt builtin modules (#137244)
+          change of imp.find_module wrt builtin modules (#137244)
 
     * testlib: use assertCountEqual instead of assertSameElements/assertItemsEqual
       (deprecated), fixing crash with python 3.3 (#144526)
@@ -166,9 +213,9 @@ ChangeLog for logilab.common
     * registry:
 
         - select_or_none should not silent ObjectNotFound exception
-        (closes #119819)
+          (closes #119819)
         - remove 2 accidentally introduced tabs breaking python 3 compat
-        (closes #117580)
+          (closes #117580)
 
     * fix umessages test w/ python 3 and LC_ALL=C (closes #119967, report and
       patch by Ian Delaney)
@@ -342,16 +389,16 @@ ChangeLog for logilab.common
     * dropped python 2.3 support
 
     * daemon: we can now specify umask to daemonize function, and it return
-     different exit code according to the process
+      different exit code according to the process
 
     * pyro_ext: new ns_reregister function to ensure a name is still properly
-     registered in the pyro name server
+      registered in the pyro name server
 
     * hg: new incoming/outgoing functions backward compatible with regards to
-     mercurial version (eg hg 1.6 and earlier)
+      mercurial version (eg hg 1.6 and earlier)
 
     * testlib/pytest: more deprecation and removed code. Still on the way to
-     unittest2
+      unittest2
 
 
 
@@ -412,8 +459,8 @@ ChangeLog for logilab.common
     * textutils: new split_url_or_path and text_to_dict functions
 
     * logging_ext:
-      - init_log now accept optionaly any arbitrary handler
-      - threshold default to DEBUG if debug flag is true  and no threshold specified
+        - init_log now accept optionaly any arbitrary handler
+        - threshold default to DEBUG if debug flag is true  and no threshold specified
 
     * date: new ustrftime implementation working around datetime limitaion on dates < 1900
 
@@ -425,8 +472,8 @@ ChangeLog for logilab.common
     * date: fix nb_open_days() codomain, positive natural numbers are expected
 
     * configuration:
-      - skip option with no type, avoid pb with generated option such as long-help
-      - handle level on man page generation
+        - skip option with no type, avoid pb with generated option such as long-help
+        - handle level on man page generation
 
 
 
@@ -436,7 +483,7 @@ ChangeLog for logilab.common
     * daemon: new daemonize function
 
     * modutils: fix some false negative of is_standard_module with
-     'from module import something" where something isn't a submodule
+      'from module import something" where something isn't a submodule
 
     * optik_ext: fix help generation for normal optparse using script if
       optik_ext has been imported (#24450)
@@ -459,21 +506,21 @@ ChangeLog for logilab.common
 
 2010-04-20  --  0.50.0
     * graph:
-     - generate methods now takes an optional mapfile argument to generate
-       html image maps
-     - new ordered_nodes function taking a dependency graph dict as arguments
-       and returning an ordered list of nodes
+        - generate methods now takes an optional mapfile argument to generate
+          html image maps
+        - new ordered_nodes function taking a dependency graph dict as arguments
+          and returning an ordered list of nodes
 
     * configuration:
-     - nicer serialization of bytes / time option
-     - may now contains several option provider with the same name
-     - consider 'level' in option dict, --help displaying only option with level
-       0, and automatically adding --long-help options for higher levels
+        - nicer serialization of bytes / time option
+        - may now contains several option provider with the same name
+        - consider 'level' in option dict, --help displaying only option with level
+          0, and automatically adding --long-help options for higher levels
 
     * textutils: case insensitive apply_unit
 
     * sphinx_ext: new module usable as a sphinx pluggin and containing a new
-     'autodocstring' directive
+      'autodocstring' directive
 
     * ureports: output &#160; instead of &nbsp; for strict xhtml compliance
 
@@ -509,11 +556,11 @@ ChangeLog for logilab.common
 
 2010-02-10  --  0.47.0
     * adbh: changed backup / restore api (BREAKS COMPAT):
-      - backup_command is now backup_commands (eg return a list of commands)
-      - each command returned in backup_commands/restore_commands may now
-        be list that may be used as argument to subprocess.call, or a string
-        which will the requires a subshell
-      - new sql_rename_col method
+        - backup_command is now backup_commands (eg return a list of commands)
+        - each command returned in backup_commands/restore_commands may now
+          be list that may be used as argument to subprocess.call, or a string
+          which will the requires a subshell
+        - new sql_rename_col method
 
     * deprecation: deprecated now takes an optional 'stacklevel' argument, default to 2
 
@@ -561,12 +608,12 @@ ChangeLog for logilab.common
     * dbf: a DBF reader which reads Visual Fox Pro DBF format with Memo field (module from Yusdi Santoso)
 
     * shellutils:
-     - #9764 add title to shellutils.ProgressBar
-     - #9796 new confirm function
+      - #9764 add title to shellutils.ProgressBar
+      - #9796 new confirm function
 
     * testlib:
-     - simplify traceback manipulation (skip first frames corresponding to testlib functions)
-     - -c now captures DeprecationWarnings
+      - simplify traceback manipulation (skip first frames corresponding to testlib functions)
+      - -c now captures DeprecationWarnings
 
     * sphinxutils: simplified API
 
@@ -579,16 +626,16 @@ ChangeLog for logilab.common
     * pyro_ext: new module for pyro utilities
 
     * adbh: fix default set_null_allowed implementation, new case_sensitive
-     resource descriptor
+      resource descriptor
 
 
 
 2009-06-03  --  0.41.0
     * modutils: new extrapath argument to modpath_from_file (see function's
-     docstring for explanation)
+      docstring for explanation)
 
     * adbh: new alter_column_support flag, sql_set_null_allowed and
-     sql_change_col_type methods
+      sql_change_col_type methods
 
 
 
@@ -701,7 +748,7 @@ ChangeLog for logilab.common
 2008-10-01  --  0.35.2
     * configuration:
       - fix #6011: lgc.configuration ignore customized option values
-      - fix #3278: man page generation broken   
+      - fix #3278: man page generation broken
 
     * dropped context.py module which broke the debian package when
       some python <2.5 is installed (#5979)
@@ -771,7 +818,7 @@ ChangeLog for logilab.common
     * db: remember logged user on the connection
 
     * clcommands: commands may be hidden (e.g. not displayed in help), generic
-      ListCommandsCommand useful to build bash completion helpers 
+      ListCommandsCommand useful to build bash completion helpers
 
     * changelog: module to parse ChangeLog file as this one, backported from
       logilab.devtools
@@ -873,7 +920,7 @@ ChangeLog for logilab.common
     * decorators: new classproperty decorator
 
     * adbh: new module containing advanced db helper which were in the "db"
-      module, with additional registered procedures handling 
+      module, with additional registered procedures handling
 
 
 
@@ -901,7 +948,7 @@ ChangeLog for logilab.common
       meaning remaining args should not be checked
 
     * interface: new extend function to dynamically add an implemented interface
-      to a new style class      
+      to a new style class
 
 
 
@@ -938,7 +985,7 @@ ChangeLog for logilab.common
 
 2007-02-12  --  0.21.3
     * fixed cached decorator to use __dict__ instead of attribute lookup,
-      avoiding potential bugs with inheritance when using cached class 
+      avoiding potential bugs with inheritance when using cached class
       methods
 
 
@@ -952,7 +999,7 @@ ChangeLog for logilab.common
     * tree: make Node iterable (iter on its children)
 
     * configuration: fix #3197 (OptionsManagerMixin __init__ isn't passing
-      correctly its "version" argument) 
+      correctly its "version" argument)
 
     * textutils: new 'rest' argument to normalize_text to better deal with
       ReST formated text
@@ -973,7 +1020,7 @@ ChangeLog for logilab.common
       has been added
 
     * deprecated fileutils.[files_by_ext,include_files_by_ext,exclude_files_by_ext]
-      functions in favor of new function shellutils.find        
+      functions in favor of new function shellutils.find
 
     * mark the following modules for deprecation, they will be removed in a
       near version:
