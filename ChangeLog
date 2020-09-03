@@ -1,6 +1,12 @@
 ChangeLog for logilab.common
 ============================
 
+2020-09-03 -- 1.7.3
+
+    * fix: in some situation (using several deprecation functions), renaming
+      deprecation utils failed to point to the correct new name and used random
+      internal names of the module
+
 2020-06-11 -- 1.7.1
 
     * fix: import error on re.Pattern with python < 3.7
