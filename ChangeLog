@@ -1,11 +1,31 @@
 ChangeLog for logilab.common
 ============================
 
+2020-11-22 -- 1.8.0
+
+    * deprecation: add subclass to DeprecationWarning with structured
+      information (TargetRenamedDeprecationWarning,
+      TargetDeprecatedDeprecationWarning, TargetRemovedDeprecationWarning,
+      TargetMovedDeprecationWarning)
+    * deprecation: add tests to ensure that DeprecationWarning target the
+      correct line and the correct file
+    * deprecation: add types annotations
+    * declare that logilab.common ships type annotations (py.typed file)
+    * various bug fixes
+
 2020-09-03 -- 1.7.3
 
+    * type: declare that logilab-common ship type annotations
+    * make the build reproducible
+    * fix(deprecation): stacked decorators breaks getting the real callable
+      __name__ attribute
     * fix: in some situation (using several deprecation functions), renaming
       deprecation utils failed to point to the correct new name and used random
       internal names of the module
+
+2020-06-24 -- 1.7.2
+
+    * fix(deprecation): rollback to old class_deprecation being a class behavior
 
 2020-06-11 -- 1.7.1
 
