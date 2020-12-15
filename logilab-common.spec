@@ -4,7 +4,7 @@
 #
 Name     : logilab-common
 Version  : 1.8.0
-Release  : 69
+Release  : 70
 URL      : https://files.pythonhosted.org/packages/77/62/44b45f96eec452deac401e4cc70d60ac1d5ad8a1844d4845daa8f042ea22/logilab-common-1.8.0.tar.gz
 Source0  : https://files.pythonhosted.org/packages/77/62/44b45f96eec452deac401e4cc70d60ac1d5ad8a1844d4845daa8f042ea22/logilab-common-1.8.0.tar.gz
 Summary  : collection of low-level Python packages and modules used by Logilab projects
