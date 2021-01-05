@@ -1,6 +1,13 @@
 ChangeLog for logilab.common
 ============================
 
+2021-01-05 -- 1.8.1
+
+    * feature: add tox helpers to make pipy and debian releases
+    * fix: use TypedDict if python version > 3.8 only, otherwise use a Dict
+           (TypedDict were imported from typing_extension 3.7.4, which is not
+           available on debian buster)
+
 2020-11-22 -- 1.8.0
 
     * deprecation: add subclass to DeprecationWarning with structured
