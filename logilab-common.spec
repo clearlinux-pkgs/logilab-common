@@ -4,7 +4,7 @@
 #
 Name     : logilab-common
 Version  : 1.8.1
-Release  : 79
+Release  : 80
 URL      : https://files.pythonhosted.org/packages/be/41/12085bd231695571d1c0544474ba2909f00d3d8082fc3c6bbc4be27b2c8f/logilab-common-1.8.1.tar.gz
 Source0  : https://files.pythonhosted.org/packages/be/41/12085bd231695571d1c0544474ba2909f00d3d8082fc3c6bbc4be27b2c8f/logilab-common-1.8.1.tar.gz
 Summary  : collection of low-level Python packages and modules used by Logilab projects
@@ -81,7 +81,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1609869955
+export SOURCE_DATE_EPOCH=1635751465
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto "
 export FCFLAGS="$FFLAGS -fno-lto "
@@ -101,7 +101,7 @@ echo ----[ mark ]----
 cat %{buildroot}/usr/lib/python3*/site-packages/*/requires.txt || :
 echo ----[ mark ]----
 ## Remove excluded files
-rm -f %{buildroot}/usr/bin/pytest
+rm -f %{buildroot}*/usr/bin/pytest
 
 %files
 %defattr(-,root,root,-)
